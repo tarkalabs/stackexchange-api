@@ -2,17 +2,17 @@
   "name": "stackexchange-api",
   "version": "1.0.0",
   "description": "This Sqitch bundle and TypeScript file allows you to move a StackExchange dump to a PostgresDB.",
-  "main": "DataRowsGenerator.ts",
+  "main": "DataRowsGenerator.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "generate": "node DataRowsGenerator.js"
+    "generate": "node $npm_package_main"
   },
   "author": "Samuel Beaulieu",
   "license": "ISC",
   "dependencies": {
     "7zip-min": "^1.1.2",
     "build": "^0.1.4",
+    "typescript": "^3.9.5",
     "xml-js": "^1.6.11"
   }
 }
