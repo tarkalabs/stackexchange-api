@@ -5,7 +5,7 @@
 BEGIN;
 
 CREATE TABLE stackdump.postlinks(
-id INTEGER PRIMARY KEY,
+id SERIAL PRIMARY KEY,
 creationDate TIMESTAMP,
 postId INTEGER REFERENCES stackdump.posts(id),
 relatedPostId INTEGER REFERENCES stackdump.posts(id),

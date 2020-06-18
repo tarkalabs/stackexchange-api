@@ -5,7 +5,7 @@
 BEGIN;
 
 CREATE TABLE stackdump.badges(
-id INTEGER PRIMARY KEY,
+id SERIAL PRIMARY KEY,
 userId INTEGER REFERENCES stackdump.users(id),
 name TEXT,
 date TIMESTAMP,
