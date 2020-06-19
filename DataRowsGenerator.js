@@ -56,7 +56,7 @@ function generateQueries() {
                 .on('data', myListener)
                 .on('end', function () {
                 var lastId = processArray(splitText, xmlList[i], columnList, dataTypes);
-                fs.appendFileSync('./migrations/deploy/dataRows.sql', 'ALTER SEQUENCE stackdump.' + xmlList[i].replace('.xml', '').toLowerCase() + '_id_seq RESTART WITH ' + lastId + ';\n');
+                fs.appendFileSync('./migrations/deploy/dataRows.sql', 'ALTER SEQUENCE stackdump.' + xmlList[i].replace('.xml', '').toLowerCase() + '_id_seq RESTART WITH ' + (lastId + 1) + ';\n');
                 if (i === xmlList.length - 1) {
                     answerList.forEach(function (answer) {
                         fs.appendFileSync('./migrations/deploy/dataRows.sql', 'SELECT stackdump.insert_answer(' + answer[0] + ',' + answer[1] + ');\n');
