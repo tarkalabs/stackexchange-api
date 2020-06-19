@@ -6,7 +6,7 @@
 BEGIN;
 
 CREATE TABLE stackdump.comments(
-id INTEGER PRIMARY KEY,
+id SERIAL PRIMARY KEY,
 postId INTEGER REFERENCES stackdump.posts(id),
 score INTEGER,
 text TEXT,

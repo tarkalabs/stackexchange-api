@@ -63,7 +63,9 @@ function generateQueries(): void {
             fs.createReadStream(`./temp/${xmlList[i]}`, 'utf8')
                 .on('data', myListener)
                 .on('end', () => {
-                    processArray(splitText, xmlList[i], columnList, dataTypes);
+                    const lastId: number = processArray(splitText, xmlList[i], columnList, dataTypes);
+                    fs.appendFileSync('./migrations/deploy/dataRows.sql', 
+                        'ALTER SEQUENCE stackdump.' + xmlList[i].replace('.xml','').toLowerCase() + '_id_seq RESTART WITH ' + (lastId + 1) + ';\n');
                     if(i === xmlList.length - 1) {
                         answerList.forEach(function(answer) {
                             fs.appendFileSync('./migrations/deploy/dataRows.sql', 'SELECT stackdump.insert_answer(' + answer[0] + ',' + answer[1] + ');\n');
@@ -99,8 +101,9 @@ function newLineStream(callback: any) {
 /*
 Processes the lines in the splitText array.
 */
-function processArray(splitText: string[], currentXml: string, columnList: string[], dataTypes: string[]) {
+function processArray(splitText: string[], currentXml: string, columnList: string[], dataTypes: string[]): number {
     let query: string = '';
+    let lastId: number = 0;
     splitText.forEach((line) => {
         const lowerFileName = currentXml.toLowerCase();
         if(lowerFileName === 'posthistory.xml') {
@@ -123,6 +126,9 @@ function processArray(splitText: string[], currentXml: string, columnList: strin
                     query += '\'' + value + '\'';
                 } else if(dataTypes[j] === 'INTEGER') {
                     query += value;
+                    if(columnList[j] === 'Id') {
+                        lastId = parseInt(value);
+                    }
                 } else if(dataTypes[j] === 'BOOLEAN') {
                     query += value.toLowerCase();
                 } else {
@@ -140,6 +146,7 @@ function processArray(splitText: string[], currentXml: string, columnList: strin
         
     });
     fs.appendFileSync('./migrations/deploy/dataRows.sql', query);
+    return lastId;
 }
 
 /*

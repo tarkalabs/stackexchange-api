@@ -6,7 +6,7 @@
 BEGIN;
 
 CREATE TABLE stackdump.posts(
-id INTEGER PRIMARY KEY,
+id SERIAL PRIMARY KEY,
 postTypeId INTEGER REFERENCES stackdump.postTypes(id),
 acceptedAnswerId INTEGER REFERENCES stackdump.posts(id),
 creationDate TIMESTAMP,

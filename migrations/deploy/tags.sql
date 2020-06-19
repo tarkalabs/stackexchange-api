@@ -5,7 +5,7 @@
 BEGIN;
 
 CREATE TABLE stackdump.tags(
-id INTEGER PRIMARY KEY,
+id SERIAL PRIMARY KEY,
 tagName TEXT,
 count INTEGER,
 excerptPostId INTEGER REFERENCES stackdump.posts(id),

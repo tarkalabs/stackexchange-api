@@ -7,7 +7,7 @@
 BEGIN;
 
 CREATE TABLE stackdump.posthistory(
-id INTEGER PRIMARY KEY,
+id SERIAL PRIMARY KEY,
 postHistoryTypeId INTEGER REFERENCES stackdump.postHistoryTypes(id),
 postId INTEGER REFERENCES stackdump.posts(id),
 revisionGUID TEXT,
