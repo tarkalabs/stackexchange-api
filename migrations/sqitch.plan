@@ -4,6 +4,7 @@
 
 appschema 2020-05-28T15:04:28Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Add schema for stackdump.
 users [appschema] 2020-05-28T17:08:17Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates users table
+accounts [appschema] 2020-06-23T00:51:58Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates table to track accounts.
 badges [users] 2020-05-28T17:27:54Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates badges table
 postTypes [appschema] 2020-05-29T13:08:34Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the types of posts.
 posts [appschema postTypes] 2020-05-29T13:24:39Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the posts.
@@ -25,5 +26,3 @@ insert_postHistory [appschema postHistory] 2020-06-02T17:20:02Z Samuel Beaulieu 
 insert_vote [appschema votes] 2020-06-02T17:20:32Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A stored procedure to add a vote.
 dataRows [appschema badges comments postHistory postLinks posts tags users votes insert_vote] 2020-06-01T13:42:27Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # The rows to be inserted.
 @v1.0.0-dev1 2020-06-03T17:22:19Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Tag v1.0.0-dev1.
-
-

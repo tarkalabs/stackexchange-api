@@ -3,5 +3,6 @@
 BEGIN;
 
 CREATE SCHEMA stackdump;
+CREATE SCHEMA stackdump_private;
 
 COMMIT;

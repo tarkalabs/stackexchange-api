@@ -5,10 +5,10 @@
 BEGIN;
 
 CREATE TABLE stackdump.badges(
-id INTEGER PRIMARY KEY,
+id SERIAL PRIMARY KEY,
 userId INTEGER REFERENCES stackdump.users(id),
-name TEXT,
-date TIMESTAMP,
+name TEXT NOT NULL,
+date TIMESTAMP DEFAULT NOW(),
 class INTEGER,
 tagBased BOOLEAN
 );

@@ -2,6 +2,7 @@
 
 BEGIN;
 
-DROP SCHEMA stackdump;
+DROP SCHEMA IF EXISTS stackdump;
+DROP SCHEMA IF EXISTS stackdump_private;
 
 COMMIT;

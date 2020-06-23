@@ -5,9 +5,9 @@
 BEGIN;
 
 CREATE TABLE stackdump.tags(
-id INTEGER PRIMARY KEY,
-tagName TEXT,
-count INTEGER,
+id SERIAL PRIMARY KEY,
+tagName TEXT NOT NULL,
+count INTEGER DEFAULT 0,
 excerptPostId INTEGER REFERENCES stackdump.posts(id),
 wikiPostId INTEGER REFERENCES stackdump.posts(id)
 );

@@ -1,4 +1,3 @@
-"use strict";
 var fs = require('fs');
 var _7z = require('7zip-min');
 var convert = require('xml-js');
@@ -56,7 +55,8 @@ function generateQueries() {
             fs.createReadStream("./temp/" + xmlList[i], 'utf8')
                 .on('data', myListener)
                 .on('end', function () {
-                processArray(splitText, xmlList[i], columnList, dataTypes);
+                var lastId = processArray(splitText, xmlList[i], columnList, dataTypes);
+                fs.appendFileSync('./migrations/deploy/dataRows.sql', 'ALTER SEQUENCE stackdump.' + xmlList[i].replace('.xml', '').toLowerCase() + '_id_seq RESTART WITH ' + (lastId + 1) + ';\n');
                 if (i === xmlList.length - 1) {
                     answerList.forEach(function (answer) {
                         fs.appendFileSync('./migrations/deploy/dataRows.sql', 'SELECT stackdump.insert_answer(' + answer[0] + ',' + answer[1] + ');\n');
@@ -96,6 +96,7 @@ Processes the lines in the splitText array.
 */
 function processArray(splitText, currentXml, columnList, dataTypes) {
     var query = '';
+    var lastId = 0;
     splitText.forEach(function (line) {
         var lowerFileName = currentXml.toLowerCase();
         if (lowerFileName === 'posthistory.xml') {
@@ -119,6 +120,9 @@ function processArray(splitText, currentXml, columnList, dataTypes) {
                 }
                 else if (dataTypes[j] === 'INTEGER') {
                     query += value;
+                    if (columnList[j] === 'Id') {
+                        lastId = parseInt(value);
+                    }
                 }
                 else if (dataTypes[j] === 'BOOLEAN') {
                     query += value.toLowerCase();
@@ -137,6 +141,7 @@ function processArray(splitText, currentXml, columnList, dataTypes) {
         query += ');\n';
     });
     fs.appendFileSync('./migrations/deploy/dataRows.sql', query);
+    return lastId;
 }
 /*
 Generates the requires lines of the output file.

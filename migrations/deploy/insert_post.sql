@@ -26,6 +26,9 @@ CREATE OR REPLACE FUNCTION stackdump.insert_post(
     BEGIN
     INSERT INTO stackdump.posts VALUES($1, $2, NULL, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17);
     EXCEPTION
+        WHEN not_null_violation THEN
+            RAISE NOTICE 'Caught null body post';
+            $7 := 'NO_TEXT';
         WHEN foreign_key_violation THEN
             RAISE NOTICE 'Caught fk violation: ';
             IF (SELECT NOT EXISTS(SELECT 1 FROM stackdump.postTypes WHERE postTypes.id = $2) AND $2 IS NOT NULL) THEN
