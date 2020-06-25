@@ -1,2 +1,4 @@
 node_modules/
 .DS_Store
+*.stackexchange.com.7z
+/migrations/deploy/dataRows.sql

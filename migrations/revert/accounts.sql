@@ -2,7 +2,6 @@
 
 BEGIN;
 
-DROP EXTENSION IF EXISTS "pgcrypto";
 DROP TABLE stackdump_private.accounts;
 
 COMMIT;

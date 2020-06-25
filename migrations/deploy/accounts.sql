@@ -3,10 +3,8 @@
 
 BEGIN;
 
-CREATE EXTENSION IF NOT EXISTS "pgcrypto";
-
 CREATE TABLE stackdump_private.accounts(
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY REFERENCES stackdump.users(id),
     username TEXT NOT NULL,
     password TEXT NOT NULL,
     creationDate TIMESTAMP DEFAULT NOW()

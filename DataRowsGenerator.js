@@ -97,6 +97,7 @@ Processes the lines in the splitText array.
 function processArray(splitText, currentXml, columnList, dataTypes) {
     var query = '';
     var lastId = 0;
+    var currId;
     splitText.forEach(function (line) {
         var lowerFileName = currentXml.toLowerCase();
         if (lowerFileName === 'posthistory.xml') {
@@ -121,6 +122,7 @@ function processArray(splitText, currentXml, columnList, dataTypes) {
                 else if (dataTypes[j] === 'INTEGER') {
                     query += value;
                     if (columnList[j] === 'Id') {
+                        currId = parseInt(value);
                         lastId = parseInt(value);
                     }
                 }
@@ -139,6 +141,9 @@ function processArray(splitText, currentXml, columnList, dataTypes) {
             }
         }
         query += ');\n';
+        if (lowerFileName === 'users.xml') {
+            query += 'SELECT stackdump.insert_account(' + currId + ');\n';
+        }
     });
     fs.appendFileSync('./migrations/deploy/dataRows.sql', query);
     return lastId;
@@ -168,6 +173,7 @@ function generateDependencies() {
     query += '-- requires: insert_answer\n';
     query += '\n';
     query += 'BEGIN;\n\n';
+    query += 'SET search_path TO stackdump, stackdump_private, stackdump_extensions;\n';
     fs.writeFileSync('./migrations/deploy/dataRows.sql', query);
 }
 /*

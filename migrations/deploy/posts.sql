@@ -10,8 +10,8 @@ id SERIAL PRIMARY KEY,
 postTypeId INTEGER REFERENCES stackdump.postTypes(id),
 acceptedAnswerId INTEGER REFERENCES stackdump.posts(id),
 creationDate TIMESTAMP DEFAULT NOW(),
-score INTEGER,
-viewCount INTEGER,
+score INTEGER DEFAULT 0,
+viewCount INTEGER DEFAULT 0,
 body TEXT NOT NULL,
 ownerUserId INTEGER REFERENCES stackdump.users(id),
 ownerDisplayName TEXT,
@@ -20,9 +20,9 @@ lastEditDate TIMESTAMP DEFAULT NOW(),
 lastActivityDate TIMESTAMP DEFAULT NOW(),
 title TEXT,
 tags TEXT,
-answerCount INTEGER,
-commentCount INTEGER,
-favoriteCount INTEGER
+answerCount INTEGER DEFAULT 0,
+commentCount INTEGER DEFAULT 0,
+favoriteCount INTEGER DEFAULT 0
 );
 
 COMMIT;
