@@ -10,7 +10,7 @@ CREATE OR REPLACE FUNCTION stackdump.insert_account(
 ) RETURNS VOID LANGUAGE PLPGSQL AS $$
     BEGIN
         INSERT INTO stackdump_private.accounts(id, username, password) VALUES
-            (id, CONCAT('SEED_USER', id), stackdump_extensions.crypt(CONCAT('SEED_PASS', id), stackdump_extensions.gen_salt('md5')));
+            (id, CONCAT('SEED_USER', id), extensions.crypt(CONCAT('SEED_PASS', id), extensions.gen_salt('md5')));
     END;
 $$;
 
@@ -25,7 +25,7 @@ CREATE OR REPLACE FUNCTION stackdump.insert_account(
             (nextval('stackdump.users_id_seq'), username, lastval())
             RETURNING id INTO newId;
         INSERT INTO stackdump_private.accounts(id, username, password) VALUES
-            (newId, username, stackdump_extensions.crypt(password, stackdump_extensions.gen_salt('md5')));
+            (newId, username, extensions.crypt(password, extensions.gen_salt('md5')));
     END;
 $$;
 
