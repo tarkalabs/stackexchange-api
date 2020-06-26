@@ -27,3 +27,4 @@ insert_postHistory [appschema postHistory] 2020-06-02T17:20:02Z Samuel Beaulieu 
 insert_vote [appschema votes] 2020-06-02T17:20:32Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A stored procedure to add a vote.
 dataRows [appschema badges comments postHistory postLinks posts tags users votes insert_vote] 2020-06-01T13:42:27Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # The rows to be inserted.
 @v1.0.0-dev1 2020-06-03T17:22:19Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Tag v1.0.0-dev1.
+register_user 2020-06-26T12:30:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added function to register a new user

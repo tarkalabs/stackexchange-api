@@ -4,7 +4,6 @@ BEGIN;
 
 CREATE SCHEMA stackdump;
 CREATE SCHEMA stackdump_private;
-CREATE SCHEMA stackdump_extensions;
-CREATE EXTENSION "pgcrypto" SCHEMA stackdump_extensions;
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
 COMMIT;
