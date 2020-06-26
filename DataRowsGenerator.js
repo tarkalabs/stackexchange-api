@@ -57,6 +57,9 @@ function generateQueries() {
                 .on('end', function () {
                 var lastId = processArray(splitText, xmlList[i], columnList, dataTypes);
                 fs.appendFileSync('./migrations/deploy/dataRows.sql', 'ALTER SEQUENCE stackdump.' + xmlList[i].replace('.xml', '').toLowerCase() + '_id_seq RESTART WITH ' + (lastId + 1) + ';\n');
+                if (i === 0) {
+                    fs.appendFileSync('./migrations/deploy/dataRows.sql', 'ALTER SEQUENCE stackdump_private.accounts_id_seq RESTART WITH ' + (lastId + 1) + ';\n');
+                }
                 if (i === xmlList.length - 1) {
                     answerList.forEach(function (answer) {
                         fs.appendFileSync('./migrations/deploy/dataRows.sql', 'SELECT stackdump.insert_answer(' + answer[0] + ',' + answer[1] + ');\n');
@@ -173,7 +176,7 @@ function generateDependencies() {
     query += '-- requires: insert_answer\n';
     query += '\n';
     query += 'BEGIN;\n\n';
-    query += 'SET search_path TO stackdump, stackdump_private, stackdump_extensions;\n';
+    //query += 'SET search_path TO stackdump, stackdump_private, stackdump_extensions;\n'
     fs.writeFileSync('./migrations/deploy/dataRows.sql', query);
 }
 /*
