@@ -1,5 +1,6 @@
 -- Deploy stackdump:posts to pg
 -- requires: appschema
+-- requires: roles
 -- requires: postTypes
 -- requires: users
 
@@ -14,8 +15,8 @@ creationDate TIMESTAMP DEFAULT NOW(),
 score INTEGER DEFAULT 0,
 viewCount INTEGER DEFAULT 0,
 body TEXT NOT NULL,
-ownerUserId INTEGER REFERENCES stackdump.users(id),
-ownerDisplayName TEXT,
+ownerUserId INTEGER REFERENCES stackdump.users(id) DEFAULT current_setting('jwt.claims.user_id',false)::INTEGER,
+ownerDisplayName TEXT DEFAULT current_setting('jwt.claims.username',false),
 lastEditorUserId INTEGER REFERENCES stackdump.users(id),
 lastEditDate TIMESTAMP DEFAULT NOW(),
 lastActivityDate TIMESTAMP DEFAULT NOW(),

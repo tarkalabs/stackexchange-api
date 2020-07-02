@@ -3,6 +3,7 @@
 %uri=https://github.com/WafflesonFire/stackdump/
 
 appschema 2020-05-28T15:04:28Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Add schema for stackdump.
+roles 2020-07-02T13:58:18Z Rahul Padalkar <rahul@tarkalabs.com> # Added roles to be used in row level security
 accounts [appschema] 2020-06-23T00:51:58Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates table to track accounts.
 users [appschema] 2020-05-28T17:08:17Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates users table
 badges [users] 2020-05-28T17:27:54Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates badges table
@@ -27,6 +28,10 @@ insert_postHistory [appschema postHistory] 2020-06-02T17:20:02Z Samuel Beaulieu 
 insert_vote [appschema votes] 2020-06-02T17:20:32Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A stored procedure to add a vote.
 dataRows [appschema badges comments postHistory postLinks posts tags users votes insert_vote] 2020-06-01T13:42:27Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # The rows to be inserted.
 @v1.0.0-dev1 2020-06-03T17:22:19Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Tag v1.0.0-dev1.
-register_user 2020-06-26T12:30:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added function to register a new user
 timestamp_triggers [posts users appschema] 2020-06-29T14:03:36Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates the triggers that update timestamps.
 example_badge_triggers [badges users appschema] 2020-06-29T16:29:49Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Example badge triggers for demonstration purposes.
+register_user [accounts users] 2020-06-26T12:30:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added function to register a new user
+jwt 2020-07-02T13:50:36Z Rahul Padalkar <rahul@tarkalabs.com> # Added JWT token
+authentication [jwt accounts users] 2020-07-02T13:48:53Z Rahul Padalkar <rahul@tarkalabs.com> # Added authentication function
+posts_rls_comments [posts roles] 2020-07-02T14:32:52Z Rahul Padalkar <rahul@tarkalabs.com> # Added row level security and comments on posts table
+grants [roles appschema authentication register_user posts] 2020-07-02T14:57:54Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants to functions and tables

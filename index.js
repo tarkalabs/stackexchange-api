@@ -10,6 +10,9 @@ app.use(postgraphile(
     watchPg: true,
     graphiql: true,
     enhanceGraphiql: true,
+    pgDefaultRole: "user_anon",
+    jwtSecret: "l1mgpz7v5rnu5uf54lp2",
+    jwtPgTypeIdentifier: "stackdump.jwt_token",
   },
 ));
 const postgraphileOptions = {
