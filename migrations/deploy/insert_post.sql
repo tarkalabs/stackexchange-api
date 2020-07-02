@@ -19,7 +19,7 @@ CREATE OR REPLACE FUNCTION stackdump.insert_post(
     lastEditDate TIMESTAMP,
     lastActivityDate TIMESTAMP,
     title TEXT,
-    tags TEXT,
+    tags TEXT[],
     answerCount INTEGER,
     commentCount INTEGER,
     favoriteCount INTEGER

@@ -20,7 +20,7 @@ lastEditorUserId INTEGER REFERENCES stackdump.users(id),
 lastEditDate TIMESTAMP DEFAULT NOW(),
 lastActivityDate TIMESTAMP DEFAULT NOW(),
 title TEXT,
-tags TEXT,
+tags TEXT[],
 answerCount INTEGER DEFAULT 0,
 commentCount INTEGER DEFAULT 0,
 favoriteCount INTEGER DEFAULT 0

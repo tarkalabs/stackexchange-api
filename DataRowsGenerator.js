@@ -119,8 +119,17 @@ function processArray(splitText, currentXml, columnList, dataTypes) {
             }
             if (value) {
                 if (dataTypes[j] === 'TEXT') {
-                    value = value.replace(/\'/g, '\'\'');
-                    query += '\'' + value + '\'';
+                    if (columnList[j] === 'Tags') {
+                        value = value.replace(/></g, '\',\'');
+                        value = value.replace(/</g, '[\'');
+                        value = value.replace(/>/g, '\']');
+                        //value = value.replace(/\'/g,'\'\'');
+                        query += 'ARRAY' + value;
+                    }
+                    else {
+                        value = value.replace(/\'/g, '\'\'');
+                        query += '\'' + value + '\'';
+                    }
                 }
                 else if (dataTypes[j] === 'INTEGER') {
                     query += value;
