@@ -126,6 +126,9 @@ function processArray(splitText, currentXml, columnList, dataTypes) {
                     query += value;
                     if (columnList[j] === 'Id') {
                         currId = parseInt(value);
+                        if (lowerFileName === 'users.xml') {
+                            fs.appendFileSync('./migrations/deploy/dataRows.sql', 'SELECT stackdump.insert_account(' + currId + ');\n');
+                        }
                         lastId = parseInt(value);
                     }
                 }
@@ -144,9 +147,6 @@ function processArray(splitText, currentXml, columnList, dataTypes) {
             }
         }
         query += ');\n';
-        if (lowerFileName === 'users.xml') {
-            query += 'SELECT stackdump.insert_account(' + currId + ');\n';
-        }
     });
     fs.appendFileSync('./migrations/deploy/dataRows.sql', query);
     return lastId;
@@ -199,7 +199,7 @@ function generateColumns(currentXml) {
             break;
         }
         case 'posts.xml': {
-            columnList = ['Id', 'PostTypeId', 'AcceptedAnswerId', 'CreationDate', 'Score', 'ViewCount', 'Body'];
+            columnList = ['Id', 'PostTypeId', 'AcceptedAnswerId', 'ParentId', 'CreationDate', 'Score', 'ViewCount', 'Body'];
             columnList.push('OwnerUserId', 'OwnerDisplayName', 'LastEditorUserId', 'LastEditDate');
             columnList.push('LastActivityDate', 'Title', 'Tags', 'AnswerCount', 'CommentCount', 'FavoriteCount');
             break;
@@ -244,7 +244,7 @@ function generateTypes(currentXml) {
             break;
         }
         case 'posts.xml': {
-            dataTypes = ['INTEGER', 'INTEGER', 'INTEGER', 'TIMESTAMP', 'INTEGER', 'INTEGER', 'TEXT', 'INTEGER'];
+            dataTypes = ['INTEGER', 'INTEGER', 'INTEGER', 'INTEGER', 'TIMESTAMP', 'INTEGER', 'INTEGER', 'TEXT', 'INTEGER'];
             dataTypes.push('TEXT', 'INTEGER', 'TIMESTAMP', 'TIMESTAMP', 'TEXT', 'TEXT', 'INTEGER', 'INTEGER', 'INTEGER');
             break;
         }

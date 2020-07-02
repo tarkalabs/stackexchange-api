@@ -4,7 +4,7 @@ const { postgraphile } = require("postgraphile");
 require("dotenv").config();
 
 app.use(postgraphile(
-  process.env.DB_URL,
+  process.env.DB_URL || "postgres:///sqitch_test",
   "stackdump",
   {
     watchPg: true,
@@ -12,6 +12,9 @@ app.use(postgraphile(
     enhanceGraphiql: true,
   },
 ));
+const postgraphileOptions = {
+  retryOnInitFail: true,
+};
 
 app.listen(3000, () => {
   console.log("Server Started!");

@@ -10,7 +10,7 @@ id SERIAL PRIMARY KEY,
 postId INTEGER REFERENCES stackdump.posts(id),
 score INTEGER,
 text TEXT NOT NULL,
-creationDate TIMESTAMP,
+creationDate TIMESTAMP DEFAULT NOW(),
 userId INTEGER REFERENCES stackdump.users(id)
 );
 
