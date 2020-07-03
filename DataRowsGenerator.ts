@@ -219,6 +219,7 @@ function generateColumns(currentXml: string): string[] {
             columnList = ['Id', 'PostTypeId', 'AcceptedAnswerId', 'ParentId', 'CreationDate', 'Score', 'ViewCount', 'Body'];
             columnList.push('OwnerUserId', 'OwnerDisplayName', 'LastEditorUserId', 'LastEditDate');
             columnList.push('LastActivityDate', 'Title', 'Tags', 'AnswerCount', 'CommentCount', 'FavoriteCount');
+            columnList.push('ClosedDate', 'CommunityOwnedDate', 'ContentLicense');
             break;
         }
         case 'posthistory.xml': {
@@ -265,6 +266,7 @@ function generateTypes(currentXml: string): string[] {
         case 'posts.xml': {
             dataTypes = ['INTEGER', 'INTEGER', 'INTEGER', 'INTEGER', 'TIMESTAMP', 'INTEGER', 'INTEGER', 'TEXT', 'INTEGER'];
             dataTypes.push('TEXT', 'INTEGER', 'TIMESTAMP', 'TIMESTAMP', 'TEXT', 'TEXT', 'INTEGER', 'INTEGER', 'INTEGER');
+            dataTypes.push('TIMESTAMP', 'TIMESTAMP', 'TEXT');
             break;
         }
         case 'posthistory.xml': {

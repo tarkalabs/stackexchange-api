@@ -23,7 +23,10 @@ title TEXT,
 tags TEXT[],
 answerCount INTEGER DEFAULT 0,
 commentCount INTEGER DEFAULT 0,
-favoriteCount INTEGER DEFAULT 0
+favoriteCount INTEGER DEFAULT 0,
+closedDate TIMESTAMP DEFAULT NULL,
+communityOwnedDate TIMESTAMP DEFAULT NULL,
+contentLicense TEXT
 );
 
 COMMIT;

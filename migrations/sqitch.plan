@@ -30,3 +30,4 @@ dataRows [appschema badges comments postHistory postLinks posts tags users votes
 register_user 2020-06-26T12:30:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added function to register a new user
 timestamp_triggers [posts users appschema] 2020-06-29T14:03:36Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates the triggers that update timestamps.
 example_badge_triggers [badges users appschema] 2020-06-29T16:29:49Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Example badge triggers for demonstration purposes.
+post_functions [posts tags users] 2020-07-02T15:55:09Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Contains stored functions related to the posts table.

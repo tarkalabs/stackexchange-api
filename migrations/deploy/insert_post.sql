@@ -22,10 +22,14 @@ CREATE OR REPLACE FUNCTION stackdump.insert_post(
     tags TEXT[],
     answerCount INTEGER,
     commentCount INTEGER,
-    favoriteCount INTEGER
+    favoriteCount INTEGER,
+    closedDate TIMESTAMP,
+    communityOwnedDate TIMESTAMP,
+    contentLicense TEXT
+    
 ) RETURNS VOID LANGUAGE PLPGSQL AS $$
     BEGIN
-    INSERT INTO stackdump.posts VALUES($1, $2, NULL, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18);
+    INSERT INTO stackdump.posts VALUES($1, $2, NULL, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21);
     EXCEPTION
         WHEN not_null_violation THEN
             RAISE NOTICE 'Caught null body post';
@@ -44,7 +48,7 @@ CREATE OR REPLACE FUNCTION stackdump.insert_post(
                 $11 := NULL;
                 RAISE NOTICE 'Invalid lastEditorUserId on comment with id = (%)', $1;
             END IF;
-            INSERT INTO stackdump.posts VALUES($1, $2, NULL, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18);
+            INSERT INTO stackdump.posts VALUES($1, $2, NULL, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21);
     END;
 $$;
 
