@@ -1,4 +1,4 @@
--- Deploy stackdump:insert_post to pg
+-- Deploy stackdump:register_user to pg
 -- requires: appschema
 -- requires: accounts
 -- requires: users
@@ -20,5 +20,3 @@ END;
 $$ LANGUAGE PLPGSQL STRICT SECURITY DEFINER;
 
 COMMIT;
-
-
