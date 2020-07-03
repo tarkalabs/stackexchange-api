@@ -62,7 +62,7 @@ function generateQueries() {
                 }
                 if (i === xmlList.length - 1) {
                     answerList.forEach(function (answer) {
-                        fs.appendFileSync('./migrations/deploy/dataRows.sql', 'SELECT stackdump.insert_answer(' + answer[0] + ',' + answer[1] + ');\n');
+                        fs.appendFileSync('./migrations/deploy/dataRows.sql', 'SELECT stackdump.insert_seed_answer(' + answer[0] + ',' + answer[1] + ');\n');
                     });
                     fs.appendFileSync('./migrations/deploy/dataRows.sql', '\nCOMMIT;');
                     cleanUp();
@@ -104,10 +104,10 @@ function processArray(splitText, currentXml, columnList, dataTypes) {
     splitText.forEach(function (line) {
         var lowerFileName = currentXml.toLowerCase();
         if (lowerFileName === 'posthistory.xml') {
-            query += 'SELECT stackdump.insert_' + lowerFileName.replace('.xml', '') + '(';
+            query += 'SELECT stackdump.insert_seed_' + lowerFileName.replace('.xml', '') + '(';
         }
         else {
-            query += 'SELECT stackdump.insert_' + lowerFileName.replace('s.xml', '') + '(';
+            query += 'SELECT stackdump.insert_seed_' + lowerFileName.replace('s.xml', '') + '(';
         }
         var jsonVer = convert.xml2js(line, { compact: true });
         for (var j = 0; j < columnList.length; j++) {
@@ -136,7 +136,7 @@ function processArray(splitText, currentXml, columnList, dataTypes) {
                     if (columnList[j] === 'Id') {
                         currId = parseInt(value);
                         if (lowerFileName === 'users.xml') {
-                            fs.appendFileSync('./migrations/deploy/dataRows.sql', 'SELECT stackdump.insert_account(' + currId + ');\n');
+                            fs.appendFileSync('./migrations/deploy/dataRows.sql', 'SELECT stackdump.insert_seed_account(' + currId + ');\n');
                         }
                         lastId = parseInt(value);
                     }
@@ -174,15 +174,7 @@ function generateDependencies() {
     query += '-- requires: tags\n';
     query += '-- requires: users\n';
     query += '-- requires: votes\n';
-    query += '-- requires: insert_badge\n';
-    query += '-- requires: insert_comment\n';
-    query += '-- requires: insert_postHistory\n';
-    query += '-- requires: insert_postLink\n';
-    query += '-- requires: insert_post\n';
-    query += '-- requires: insert_tag\n';
-    query += '-- requires: insert_user\n';
-    query += '-- requires: insert_vote\n';
-    query += '-- requires: insert_answer\n';
+    query += '-- requires: insert_seed_data\n';
     query += '\n';
     query += 'BEGIN;\n\n';
     //query += 'SET search_path TO stackdump, stackdump_private, stackdump_extensions;\n'
@@ -216,7 +208,7 @@ function generateColumns(currentXml) {
         }
         case 'posthistory.xml': {
             columnList = ['Id', 'PostHistoryTypeId', 'PostId', 'RevisionGUID', 'CreationDate', 'UserId'];
-            columnList.push('UserDisplayName', 'Comment', 'Text');
+            columnList.push('UserDisplayName', 'Comment', 'Text', 'ContentLicense');
             break;
         }
         case 'postlinks.xml': {
@@ -260,7 +252,7 @@ function generateTypes(currentXml) {
             break;
         }
         case 'posthistory.xml': {
-            dataTypes = ['INTEGER', 'INTEGER', 'INTEGER', 'TEXT', 'TIMESTAMP', 'INTEGER', 'TEXT', 'TEXT', 'TEXT'];
+            dataTypes = ['INTEGER', 'INTEGER', 'INTEGER', 'TEXT', 'TIMESTAMP', 'INTEGER', 'TEXT', 'TEXT', 'TEXT', 'TEXT'];
             break;
         }
         case 'postlinks.xml': {
