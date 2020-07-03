@@ -10,10 +10,12 @@ CREATE OR REPLACE FUNCTION stackdump.insert_comment(
     score INTEGER,
     text TEXT,
     creationDate TIMESTAMP,
-    userId INTEGER
+    userDisplayName TEXT,
+    userId INTEGER,
+    contentLicense TEXT
 ) RETURNS VOID LANGUAGE PLPGSQL AS $$
     BEGIN
-    INSERT INTO stackdump.comments VALUES($1, $2, $3, $4, $5, $6);
+    INSERT INTO stackdump.comments VALUES($1, $2, $3, $4, $5, $6, $7, $8);
     EXCEPTION
         WHEN foreign_key_violation THEN
             RAISE NOTICE 'Caught fk violation: ';
@@ -21,12 +23,12 @@ CREATE OR REPLACE FUNCTION stackdump.insert_comment(
                 $2 := NULL;
                 RAISE NOTICE 'Invalid postId on comment with id = (%)', $1;
             END IF;
-            IF (SELECT NOT EXISTS(SELECT 1 FROM stackdump.users WHERE users.id = $6) AND $6 IS NOT NULL) THEN
-                $6 := NULL;
+            IF (SELECT NOT EXISTS(SELECT 1 FROM stackdump.users WHERE users.id = $7) AND $7 IS NOT NULL) THEN
+                $7 := NULL;
                 RAISE NOTICE 'Invalid userId on comment with id = (%)', $1;
             END IF;
             
-            INSERT INTO stackdump.comments VALUES($1, $2, $3, $4, $5, $6);
+            INSERT INTO stackdump.comments VALUES($1, $2, $3, $4, $5, $6, $7, $8);
     END;
 $$;
 

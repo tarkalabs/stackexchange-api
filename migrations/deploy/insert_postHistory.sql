@@ -13,10 +13,11 @@ CREATE OR REPLACE FUNCTION stackdump.insert_postHistory(
     userId INTEGER,
     UserDisplayName TEXT,
     comment TEXT,
-    text TEXT
+    text TEXT,
+    contentLicense TEXT
 ) RETURNS VOID LANGUAGE PLPGSQL AS $$
     BEGIN
-    INSERT INTO stackdump.postHistory VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9);
+    INSERT INTO stackdump.postHistory VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
     EXCEPTION
         WHEN foreign_key_violation THEN
             RAISE NOTICE 'Caught fk violation: ';
@@ -32,7 +33,7 @@ CREATE OR REPLACE FUNCTION stackdump.insert_postHistory(
                 $6 := NULL;
                 RAISE NOTICE 'Invalid userId on post history with id = (%)', id;
             END IF;
-            INSERT INTO stackdump.postHistory VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9);
+            INSERT INTO stackdump.postHistory VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
     END;
 $$;
 

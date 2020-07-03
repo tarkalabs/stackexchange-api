@@ -204,7 +204,7 @@ function generateColumns(currentXml) {
             break;
         }
         case 'comments.xml': {
-            columnList = ['Id', 'PostId', 'Score', 'Text', 'CreationDate', 'UserId'];
+            columnList = ['Id', 'PostId', 'Score', 'Text', 'CreationDate', 'UserDisplayName', 'UserId', 'ContentLicense'];
             break;
         }
         case 'posts.xml': {
@@ -250,7 +250,7 @@ function generateTypes(currentXml) {
             break;
         }
         case 'comments.xml': {
-            dataTypes = ['INTEGER', 'INTEGER', 'INTEGER', 'TEXT', 'TIMESTAMP', 'INTEGER'];
+            dataTypes = ['INTEGER', 'INTEGER', 'INTEGER', 'TEXT', 'TIMESTAMP', 'TEXT', 'INTEGER', 'TEXT'];
             break;
         }
         case 'posts.xml': {

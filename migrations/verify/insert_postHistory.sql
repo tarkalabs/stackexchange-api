@@ -2,6 +2,6 @@
 
 BEGIN;
 
-SELECT has_function_privilege('stackdump.insert_postHistory(INTEGER, INTEGER, INTEGER, TEXT, TIMESTAMP, INTEGER, TEXT, TEXT, TEXT)', 'execute');
+SELECT has_function_privilege('stackdump.insert_postHistory(INTEGER, INTEGER, INTEGER, TEXT, TIMESTAMP, INTEGER, TEXT, TEXT, TEXT, TEXT)', 'execute');
 
 ROLLBACK;

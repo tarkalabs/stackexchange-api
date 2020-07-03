@@ -15,7 +15,8 @@ creationDate TIMESTAMP DEFAULT NOW(),
 userId INTEGER REFERENCES stackdump.users(id),
 UserDisplayName TEXT,
 comment TEXT,
-text TEXT
+text TEXT,
+contentLicense TEXT
 );
 
 COMMIT;

@@ -2,6 +2,6 @@
 
 BEGIN;
 
-SELECT has_function_privilege('stackdump.insert_comment(INTEGER, INTEGER, INTEGER, TEXT, TIMESTAMP, INTEGER)', 'execute');
+SELECT has_function_privilege('stackdump.insert_comment(INTEGER, INTEGER, INTEGER, TEXT, TIMESTAMP, TEXT, INTEGER, TEXT)', 'execute');
 
 ROLLBACK;
