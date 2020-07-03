@@ -13,4 +13,7 @@ class INTEGER,
 tagBased BOOLEAN
 );
 
+CREATE INDEX badges_id_idx ON stackdump.badges(id);
+CREATE INDEX badges_userId_idx ON stackdump.badges(userId);
+
 COMMIT;

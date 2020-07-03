@@ -30,4 +30,11 @@ communityOwnedDate TIMESTAMP DEFAULT NULL,
 contentLicense TEXT
 );
 
+CREATE INDEX posts_id_idx ON stackdump.posts(id);
+CREATE INDEX posts_PostTypeId_idx ON stackdump.posts(PostTypeId);
+CREATE INDEX posts_acceptedAnswerId_idx ON stackdump.posts(acceptedAnswerId);
+CREATE INDEX posts_parentId_idx ON stackdump.posts(parentId);
+CREATE INDEX posts_ownerUserId_idx ON stackdump.posts(ownerUserId);
+CREATE INDEX posts_lastEditorUserId_idx ON stackdump.posts(lastEditorUserId);
+
 COMMIT;

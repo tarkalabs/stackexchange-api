@@ -19,4 +19,7 @@ profileImageUrl TEXT DEFAULT NULL,
 accountId INTEGER NOT NULL REFERENCES stackdump_private.accounts(id)
 );
 
+CREATE INDEX users_id_idx ON stackdump.users(id);
+CREATE INDEX users_accountId_idx ON stackdump.users(accountId);
+
 COMMIT;

@@ -16,4 +16,8 @@ userId INTEGER REFERENCES stackdump.users(id),
 contentLicense TEXT
 );
 
+CREATE INDEX comments_id_idx ON stackdump.comments(id);
+CREATE INDEX comments_postId_idx ON stackdump.comments(postId);
+CREATE INDEX comments_userId_idx ON stackdump.comments(userId);
+
 COMMIT;

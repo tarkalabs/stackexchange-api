@@ -10,4 +10,6 @@ CREATE TABLE stackdump_private.accounts(
     creationDate TIMESTAMP DEFAULT NOW()
 );
 
+CREATE INDEX accounts_id_idx ON stackdump_private.accounts(id);
+
 COMMIT;

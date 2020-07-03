@@ -19,4 +19,9 @@ text TEXT,
 contentLicense TEXT
 );
 
+CREATE INDEX postHistory_id_idx ON stackdump.postHistory(id);
+CREATE INDEX postHistory_postHistoryTypeId_idx ON stackdump.postHistory(postHistoryTypeId);
+CREATE INDEX postHistory_postId_idx ON stackdump.postHistory(postId);
+CREATE INDEX postHistory_userId_idx ON stackdump.postHistory(userId);
+
 COMMIT;
