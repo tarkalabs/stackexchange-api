@@ -27,3 +27,9 @@ jwt 2020-07-02T13:50:36Z Rahul Padalkar <rahul@tarkalabs.com> # Added JWT token
 authentication [jwt accounts users] 2020-07-02T13:48:53Z Rahul Padalkar <rahul@tarkalabs.com> # Added authentication function
 posts_rls_comments [posts roles] 2020-07-02T14:32:52Z Rahul Padalkar <rahul@tarkalabs.com> # Added row level security and comments on posts table
 grants [roles appschema authentication register_user posts] 2020-07-02T14:57:54Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants to functions and tables
+user_rls_comments [users appschema roles] 2020-07-03T06:00:00Z Rahul Padalkar <rahul@tarkalabs.com> # Added rls and comments for users table
+grants_user [roles appschema users] 2020-07-03T06:29:40Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for roles on users table
+cmt_rls_comments [appschema comments roles] 2020-07-03T06:56:03Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments on comment table
+grants_comments [comments appschema roles] 2020-07-03T09:28:09Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table comments
+badges_rls_comments [appschema badges roles] 2020-07-06T05:43:16Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments on badges table
+grants_badges [appschema badges roles] 2020-07-06T05:56:54Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for badges table

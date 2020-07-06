@@ -8,11 +8,11 @@ BEGIN;
 CREATE TABLE stackdump.comments(
 id SERIAL PRIMARY KEY,
 postId INTEGER REFERENCES stackdump.posts(id),
-score INTEGER,
+score INTEGER DEFAULT 0,
 text TEXT NOT NULL,
 creationDate TIMESTAMP DEFAULT NOW(),
 userDisplayName TEXT,
-userId INTEGER REFERENCES stackdump.users(id),
+userId INTEGER REFERENCES stackdump.users(id) DEFAULT current_setting('jwt.claims.user_id',false)::int,
 contentLicense TEXT
 );
 
