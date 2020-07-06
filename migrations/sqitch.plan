@@ -33,3 +33,4 @@ cmt_rls_comments [appschema comments roles] 2020-07-03T06:56:03Z Rahul Padalkar 
 grants_comments [comments appschema roles] 2020-07-03T09:28:09Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table comments
 badges_rls_comments [appschema badges roles] 2020-07-06T05:43:16Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments on badges table
 grants_badges [appschema badges roles] 2020-07-06T05:56:54Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for badges table
+text_search [dataRows posts appschema] 2020-07-06T13:20:51Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Implements text searching.
