@@ -7,6 +7,8 @@ SELECT textsearch_index_col
     WHERE FALSE;
 
 SELECT has_function_privilege('stackdump_private.posts_tsvector_trigger()', 'execute');
+SELECT has_function_privilege('stackdump.ranked_search(TEXT)', 'execute');
+
 
 DO $$
 BEGIN

@@ -21,7 +21,6 @@ dataRows [appschema insert_seed_data] 2020-06-01T13:42:27Z Samuel Beaulieu <samu
 @v1.0.0-dev1 2020-06-03T17:22:19Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Tag v1.0.0-dev1.
 timestamp_triggers [posts users appschema] 2020-06-29T14:03:36Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates the triggers that update timestamps.
 example_badge_triggers [badges users appschema] 2020-06-29T16:29:49Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Example badge triggers for demonstration purposes.
-post_functions [posts tags users] 2020-07-02T15:55:09Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Contains stored functions related to the posts table.
 register_user [accounts users] 2020-06-26T12:30:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added function to register a new user
 jwt 2020-07-02T13:50:36Z Rahul Padalkar <rahul@tarkalabs.com> # Added JWT token
 authentication [jwt accounts users] 2020-07-02T13:48:53Z Rahul Padalkar <rahul@tarkalabs.com> # Added authentication function
@@ -34,3 +33,4 @@ grants_comments [comments appschema roles] 2020-07-03T09:28:09Z Rahul Padalkar <
 badges_rls_comments [appschema badges roles] 2020-07-06T05:43:16Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments on badges table
 grants_badges [appschema badges roles] 2020-07-06T05:56:54Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for badges table
 text_search [dataRows posts appschema] 2020-07-06T13:20:51Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Implements text searching.
+count_triggers [appschema comments posts users votes] 2020-07-08T13:50:27Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Triggers for data columns that are incremented or decremented on actions.

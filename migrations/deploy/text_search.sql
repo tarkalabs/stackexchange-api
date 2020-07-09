@@ -26,6 +26,16 @@ CREATE TRIGGER tsvectorupdate BEFORE INSERT OR UPDATE
     ON stackdump.posts FOR EACH ROW EXECUTE PROCEDURE
     stackdump_private.posts_tsvector_trigger();
 
-
+CREATE OR REPLACE FUNCTION stackdump.ranked_search(
+    terms TEXT
+) RETURNS TABLE(id INTEGER, title TEXT, rank REAL) AS $$
+    BEGIN
+        RETURN QUERY
+        SELECT posts.id AS id, posts.title AS title, ts_rank_cd(textsearch_index_col, query) AS rank
+            FROM stackdump.posts, to_tsquery(terms) query
+            WHERE query @@ textsearch_index_col
+            ORDER BY rank DESC LIMIT 10;
+    END;
+$$ LANGUAGE PLPGSQL;
 
 COMMIT;

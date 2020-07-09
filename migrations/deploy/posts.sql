@@ -10,7 +10,7 @@ CREATE TABLE stackdump.posts(
 id SERIAL PRIMARY KEY,
 postTypeId INTEGER REFERENCES stackdump.postTypes(id),
 acceptedAnswerId INTEGER REFERENCES stackdump.posts(id),
-parentId INTEGER REFERENCES stackdump.posts(id),
+parentId INTEGER REFERENCES stackdump.posts(id) ON DELETE CASCADE,
 creationDate TIMESTAMP DEFAULT NOW(),
 score INTEGER DEFAULT 0,
 viewCount INTEGER DEFAULT 0,

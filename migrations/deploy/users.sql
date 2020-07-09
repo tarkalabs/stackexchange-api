@@ -5,7 +5,7 @@ BEGIN;
 
 CREATE TABLE stackdump.users(
 id SERIAL PRIMARY KEY,
-reputation INTEGER DEFAULT 0,
+reputation INTEGER DEFAULT 1,
 creationDate TIMESTAMP DEFAULT NOW(),
 displayName TEXT,
 lastAccessDate TIMESTAMP DEFAULT NOW(),
