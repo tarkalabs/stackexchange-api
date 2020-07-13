@@ -31,10 +31,14 @@ CREATE OR REPLACE FUNCTION stackdump.ranked_search(
 ) RETURNS TABLE(id INTEGER, title TEXT, rank REAL) AS $$
     BEGIN
         RETURN QUERY
-        SELECT posts.id AS id, posts.title AS title, ts_rank_cd(textsearch_index_col, query) AS rank
-            FROM stackdump.posts, to_tsquery(terms) query
-            WHERE query @@ textsearch_index_col
-            ORDER BY rank DESC LIMIT 10;
+            SELECT result.id AS ResultId, 
+                    (CASE WHEN result.title IS NULL THEN CONCAT('A:', result.parentTitle) ELSE CONCAT('Q:', result.title) END) AS title, 
+                    ts_rank_cd(textsearch_index_col, query) AS rank
+                FROM (SELECT postA.id, postA.title, postA.textsearch_index_col, postB.title AS parentTitle
+                        FROM stackdump.posts AS postA LEFT OUTER JOIN stackdump.posts AS postB ON (postA.parentId = postB.id)) 
+                    AS result, to_tsquery(terms) query
+                WHERE query @@ textsearch_index_col
+                ORDER BY rank DESC LIMIT 10;
     END;
 $$ LANGUAGE PLPGSQL;
 
