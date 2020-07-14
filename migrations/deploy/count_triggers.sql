@@ -69,6 +69,8 @@ CREATE FUNCTION stackdump_private.post_delete_trigger() RETURNS TRIGGER AS $$
     BEGIN
         UPDATE stackdump.posts SET answerCount = answerCount - 1
             WHERE posts.id = old.parentId;
+        UPDATE stackdump.posts SET deleted = true
+            WHERE posts.id = old.id;
         INSERT INTO stackdump.postHistory(postHistoryTypeId, postId, revisionGUID, userId)
             VALUES (12, old.id, extensions.uuid_generate_v4(), old.ownerUserId);
         FOR i IN 1 .. array_upper(old.tags, 1)
@@ -79,8 +81,8 @@ CREATE FUNCTION stackdump_private.post_delete_trigger() RETURNS TRIGGER AS $$
     END;
 $$ LANGUAGE PLPGSQL;
 
-CREATE TRIGGER post_on_delete BEFORE DELETE
-    ON stackdump.posts
+CREATE TRIGGER post_on_delete INSTEAD OF DELETE
+    ON stackdump.post_view
     FOR EACH ROW
     EXECUTE PROCEDURE stackdump_private.post_delete_trigger();
 
