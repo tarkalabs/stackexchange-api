@@ -1,13 +1,9 @@
--- Verify stackdump:count_triggers on pg
+-- Verify stackdump:comment_triggers on pg
 
 BEGIN;
 
 SELECT has_function_privilege('stackdump_private.inc_commentCount()', 'execute');
 SELECT has_function_privilege('stackdump_private.dec_commentCount()', 'execute');
-SELECT has_function_privilege('stackdump_private.post_create_trigger()', 'execute');
-SELECT has_function_privilege('stackdump_private.post_delete_trigger()', 'execute');
-SELECT has_function_privilege('stackdump_private.vote_create_trigger()', 'execute');
-SELECT has_function_privilege('stackdump_private.vote_delete_trigger()', 'execute');
 
 DO $$
 BEGIN
