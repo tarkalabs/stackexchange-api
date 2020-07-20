@@ -7,6 +7,7 @@ BEGIN;
 
 CREATE FUNCTION stackdump_private.vote_create_trigger() RETURNS TRIGGER AS $$
     BEGIN
+        SET ROLE user_super;
         IF new.voteTypeId = 1 THEN 
             UPDATE stackdump.posts SET acceptedAnswerId = new.postId
                 WHERE posts.id = (SELECT parentId FROM stackdump.posts WHERE posts.id = new.postId);
@@ -24,6 +25,7 @@ CREATE FUNCTION stackdump_private.vote_create_trigger() RETURNS TRIGGER AS $$
             UPDATE stackdump.posts SET favoriteCount = favoriteCount + 1
                 WHERE posts.id = new.postId;
         END IF;
+        RESET ROLE;
         RETURN new;
     END;
 $$ LANGUAGE PLPGSQL;
@@ -35,6 +37,7 @@ CREATE TRIGGER vote_on_create AFTER INSERT
 
 CREATE FUNCTION stackdump_private.vote_delete_trigger() RETURNS TRIGGER AS $$
     BEGIN
+        SET ROLE user_super;
         IF old.voteTypeId = 1 THEN 
             UPDATE stackdump.posts SET acceptedAnswerId = NULL
                 WHERE posts.id = old.postId;
@@ -52,6 +55,7 @@ CREATE FUNCTION stackdump_private.vote_delete_trigger() RETURNS TRIGGER AS $$
             UPDATE stackdump.posts SET favoriteCount = favoriteCount - 1
                 WHERE posts.id = old.postId;
         END IF;
+        RESET ROLE;
         RETURN old;
     END;
 $$ LANGUAGE PLPGSQL;

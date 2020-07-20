@@ -10,6 +10,7 @@ CREATE FUNCTION stackdump_private.post_create_trigger() RETURNS TRIGGER AS $$
     DECLARE
         i INTEGER;
     BEGIN
+        SET ROLE user_super;
         UPDATE stackdump.posts SET answerCount = answerCount + 1
             WHERE posts.id = new.parentId;
         INSERT INTO stackdump.postHistory(postHistoryTypeId, postId, revisionGUID, userId, text)
@@ -18,11 +19,13 @@ CREATE FUNCTION stackdump_private.post_create_trigger() RETURNS TRIGGER AS $$
             VALUES (2, new.id, extensions.uuid_generate_v4(), new.ownerUserId, new.body);
         INSERT INTO stackdump.postHistory(postHistoryTypeId, postId, revisionGUID, userId, text)
             VALUES (3, new.id, extensions.uuid_generate_v4(), new.ownerUserId, ARRAY_TO_STRING(new.tags, ' '));
-        FOR i IN 1 .. array_upper(new.tags, 1)
-        LOOP
-            UPDATE stackdump.tags SET count = count + 1 WHERE tagName = new.tags[i];
-        END LOOP;
-        
+        IF array_upper(new.tags, 1) >  1 THEN 
+            FOR i IN 1 .. array_upper(new.tags, 1)
+            LOOP
+                UPDATE stackdump.tags SET count = count + 1 WHERE tagName = new.tags[i];
+            END LOOP;
+        END IF;
+        RESET ROLE;
         RETURN new;
     END;
 $$ LANGUAGE PLPGSQL;
@@ -42,10 +45,12 @@ CREATE FUNCTION stackdump_private.post_delete_trigger() RETURNS TRIGGER AS $$
             WHERE posts.id = old.id;
         INSERT INTO stackdump.postHistory(postHistoryTypeId, postId, revisionGUID, userId)
             VALUES (12, old.id, extensions.uuid_generate_v4(), old.ownerUserId);
-        FOR i IN 1 .. array_upper(old.tags, 1)
-        LOOP
-            UPDATE stackdump.tags SET count = count - 1 WHERE tagName = old.tags[i];
-        END LOOP;
+        IF array_upper(new.tags, 1) >  1 THEN
+            FOR i IN 1 .. array_upper(old.tags, 1)
+            LOOP
+                UPDATE stackdump.tags SET count = count - 1 WHERE tagName = old.tags[i];
+            END LOOP;
+        END IF;
         RETURN old;
     END;
 $$ LANGUAGE PLPGSQL;

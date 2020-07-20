@@ -7,6 +7,7 @@ CREATE TABLE stackdump_private.accounts(
     id SERIAL PRIMARY KEY,
     username TEXT NOT NULL UNIQUE,
     password TEXT NOT NULL,
+    role TEXT DEFAULT 'user_reg',
     creationDate TIMESTAMP DEFAULT NOW()
 );
 

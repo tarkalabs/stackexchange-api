@@ -9,7 +9,7 @@ CREATE TABLE stackdump.votes(
 id SERIAL PRIMARY KEY,
 postId INTEGER REFERENCES stackdump.posts(id),
 voteTypeId INTEGER REFERENCES stackdump.voteTypes(id),
-userId INTEGER REFERENCES stackdump.users(id),
+userId INTEGER REFERENCES stackdump.users(id) DEFAULT current_setting('jwt.claims.user_id',false)::int,
 creationDate TIMESTAMP DEFAULT NOW(),
 bountyAmount INTEGER
 );
