@@ -16,6 +16,7 @@ views INTEGER DEFAULT 0,
 upVotes INTEGER DEFAULT 0,
 downVotes INTEGER DEFAULT 0,
 profileImageUrl TEXT DEFAULT NULL,
+emailAddr TEXT UNIQUE,
 accountId INTEGER NOT NULL REFERENCES stackdump_private.accounts(id)
 );
 

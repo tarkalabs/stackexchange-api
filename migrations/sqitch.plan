@@ -45,4 +45,3 @@ grants_votes [appschema votes roles] 2020-07-06T09:10:18Z Rahul Padalkar <rahul@
 grants_votetypes [appschema votes roles] 2020-07-06T12:30:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table votetypes table
 grants_posttypes [appschema posts roles] 2020-07-06T12:33:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table posttypes
 votes_before_insert_trigger [appschema votes] 2020-07-07T05:44:39Z Rahul Padalkar <rahul@tarkalabs.com> # Added before insert trigger for vote table
-triggers_posts [appschema posts] 2020-07-15T11:50:28Z Rahul Padalkar <rahul@tarkalabs.com> # Added before insert trigger for posts table

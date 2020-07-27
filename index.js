@@ -1,17 +1,17 @@
 const express = require("express");
 const app = express();
 const { postgraphile } = require("postgraphile");
-require("dotenv").config();
+require("dotenv").config({path: process.cwd() + '/VARIABLES.env'});
 
 app.use(postgraphile(
-  process.env.DB_URL || "postgres:///sqitch_test",
+  process.env.DB_URL,
   "stackdump",
   {
     watchPg: true,
     graphiql: true,
     enhanceGraphiql: true,
     pgDefaultRole: "user_anon",
-    jwtSecret: "l1mgpz7v5rnu5uf54lp2",
+    jwtSecret: process.env.SECRET_URI,
     jwtPgTypeIdentifier: "stackdump.jwt_token",
   },
 ));

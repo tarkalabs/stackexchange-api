@@ -6,6 +6,6 @@ SELECT deleted
     FROM stackdump.posts
     WHERE FALSE;
 
-SELECT * FROM stackdump.post_view;
+SELECT * FROM stackdump.post_view LIMIT 1;
 
 ROLLBACK;
