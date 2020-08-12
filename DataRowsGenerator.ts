@@ -183,7 +183,6 @@ function generateDependencies(): void {
     query += '-- requires: insert_seed_data\n';
     query += '\n';
     query += 'BEGIN;\n\n';
-    //query += 'SET search_path TO stackdump, stackdump_private, stackdump_extensions;\n'
 
     fs.writeFileSync('./migrations/deploy/dataRows.sql', query);
 }

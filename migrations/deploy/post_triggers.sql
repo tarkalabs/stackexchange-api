@@ -19,8 +19,8 @@ CREATE FUNCTION stackdump_private.post_create_trigger() RETURNS TRIGGER AS $$
         INSERT INTO stackdump.postHistory(postHistoryTypeId, postId, revisionGUID, userId, text)
             VALUES (2, new.id, newGUID, new.ownerUserId, new.body);
         INSERT INTO stackdump.postHistory(postHistoryTypeId, postId, revisionGUID, userId, text)
-            VALUES (3, new.id, newGUID, new.ownerUserId, ARRAY_TO_STRING(new.tags, ' '));
-        IF array_upper(new.tags, 1) >  1 THEN 
+            VALUES (3, new.id, newGUID, new.ownerUserId, CONCAT('<', ARRAY_TO_STRING(new.tags, '><'), '>'));
+        IF array_upper(new.tags, 1) >= 1 THEN 
             FOR i IN 1 .. array_upper(new.tags, 1)
             LOOP
                 UPDATE stackdump.tags SET count = count + 1 WHERE tagName = new.tags[i];
@@ -46,7 +46,7 @@ CREATE FUNCTION stackdump_private.post_delete_trigger() RETURNS TRIGGER AS $$
             WHERE posts.id = old.id;
         INSERT INTO stackdump.postHistory(postHistoryTypeId, postId, revisionGUID, userId)
             VALUES (12, old.id, extensions.uuid_generate_v4(), old.ownerUserId);
-        IF array_upper(new.tags, 1) >  1 THEN
+        IF array_upper(new.tags, 1) >=  1 THEN
             FOR i IN 1 .. array_upper(old.tags, 1)
             LOOP
                 UPDATE stackdump.tags SET count = count - 1 WHERE tagName = old.tags[i];
@@ -76,19 +76,19 @@ CREATE FUNCTION stackdump_private.post_update_trigger() RETURNS TRIGGER AS $$
                 VALUES (5, new.id, newGUID, new.ownerUserId, new.body);
         END IF;
         IF new.tags != old.tags THEN
-            IF array_upper(old.tags, 1) >  1 THEN 
+            IF array_upper(old.tags, 1) >=  1 THEN 
                 FOR i IN 1 .. array_upper(old.tags, 1)
                 LOOP
                     UPDATE stackdump.tags SET count = count - 1 WHERE tagName = old.tags[i];
                 END LOOP;
             END IF;
-            IF array_upper(new.tags, 1) >  1 THEN 
+            IF array_upper(new.tags, 1) >=  1 THEN 
                 FOR i IN 1 .. array_upper(new.tags, 1)
                 LOOP
                     UPDATE stackdump.tags SET count = count + 1 WHERE tagName = new.tags[i];
                 END LOOP;
                 INSERT INTO stackdump.postHistory(postHistoryTypeId, postId, revisionGUID, userId, text)
-                    VALUES (6, new.id, newGUID, new.ownerUserId, new.tags);
+                    VALUES (6, new.id, newGUID, new.ownerUserId, CONCAT('<', ARRAY_TO_STRING(new.tags, '><'), '>'));
             END IF;
         END IF;
         RESET ROLE;

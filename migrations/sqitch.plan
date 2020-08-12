@@ -45,3 +45,4 @@ grants_votes [appschema votes roles] 2020-07-06T09:10:18Z Rahul Padalkar <rahul@
 grants_votetypes [appschema votes roles] 2020-07-06T12:30:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table votetypes table
 grants_posttypes [appschema posts roles] 2020-07-06T12:33:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table posttypes
 votes_before_insert_trigger [appschema votes] 2020-07-07T05:44:39Z Rahul Padalkar <rahul@tarkalabs.com> # Added before insert trigger for vote table
+post_rollback [appschema posts postHistory post_triggers] 2020-08-05T19:35:12Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates a stored procedure to rollback a post's changes.
