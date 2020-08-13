@@ -2,15 +2,12 @@
 
 BEGIN;
 
-SELECT has_function_privilege('stackdump_private.autobio_badge()', 'execute');
 DO $$
-BEGIN
-    PERFORM tgname
-        FROM pg_trigger
-        WHERE NOT tgisinternal AND tgname = 'autobio_check';
-        IF NOT FOUND THEN
-            RAISE EXCEPTION 'Trigger not found';
-        END IF;
-END $$;
+    BEGIN
+        ASSERT(SELECT 1 FROM pg_catalog.pg_proc WHERE proname = 'autobio_badge'), 'Function autobio_badge was not created';
+
+        ASSERT(SELECT 1 FROM pg_trigger WHERE tgname='autobio_check'), 'Trigger autobio_check was not created.';
+    END;
+$$ LANGUAGE PLPGSQL;
 
 ROLLBACK;

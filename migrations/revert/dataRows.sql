@@ -10,5 +10,6 @@ TRUNCATE stackdump.postLinks CASCADE;
 TRUNCATE stackdump.posts CASCADE;
 TRUNCATE stackdump.badges CASCADE;
 TRUNCATE stackdump.users CASCADE;
+TRUNCATE stackdump_private.accounts CASCADE;
 
 COMMIT;
