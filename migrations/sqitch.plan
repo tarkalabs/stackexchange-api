@@ -9,7 +9,7 @@ users [appschema accounts] 2020-05-28T17:08:17Z Samuel Beaulieu <samuel.beaulieu
 jwt 2020-07-02T13:50:36Z Rahul Padalkar <rahul@tarkalabs.com> # Added JWT token type.
 badges [users jwt] 2020-05-28T17:27:54Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates badges table.
 postTypes [appschema] 2020-05-29T13:08:34Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the types of posts.
-posts [appschema postTypes] 2020-05-29T13:24:39Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the posts.
+posts [appschema postTypes users jwt] 2020-05-29T13:24:39Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the posts.
 postLinks [appschema posts] 2020-05-29T13:46:32Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the post links.
 comments [appschema posts users] 2020-06-01T12:18:00Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the comments.
 tags [appschema posts] 2020-06-01T12:33:35Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the tags.

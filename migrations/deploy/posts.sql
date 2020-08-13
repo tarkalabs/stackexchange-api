@@ -1,8 +1,8 @@
 -- Deploy stackdump:posts to pg
 -- requires: appschema
--- requires: roles
 -- requires: postTypes
 -- requires: users
+-- requires: jwt
 
 BEGIN;
 
