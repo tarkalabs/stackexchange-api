@@ -1,12 +1,13 @@
 -- Deploy stackdump:badges to pg
 -- requires: appschema
 -- requires: users
+-- requires: jwt
 
 BEGIN;
 
 CREATE TABLE stackdump.badges(
 id SERIAL PRIMARY KEY,
-userId INTEGER REFERENCES stackdump.users(id) DEFAULT current_setting('jwt.claims.user_ id',false)::int,
+userId INTEGER REFERENCES stackdump.users(id) DEFAULT current_setting('jwt.claims.user_id',false)::int,
 name TEXT NOT NULL,
 date TIMESTAMP DEFAULT NOW(),
 class INTEGER,

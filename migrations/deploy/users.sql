@@ -1,5 +1,6 @@
 -- Deploy stackdump:users to pg
 -- requires: appschema
+-- requires: accounts
 
 BEGIN;
 

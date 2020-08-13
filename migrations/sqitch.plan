@@ -3,10 +3,11 @@
 %uri=https://github.com/WafflesonFire/stackdump/
 
 appschema 2020-05-28T15:04:28Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Add schema for stackdump.
-roles 2020-07-02T13:58:18Z Rahul Padalkar <rahul@tarkalabs.com> # Added roles to be used in row level security
+roles 2020-07-02T13:58:18Z Rahul Padalkar <rahul@tarkalabs.com> # Added roles to be used in row level security.
 accounts [appschema] 2020-06-23T00:51:58Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates table to track accounts.
-users [appschema] 2020-05-28T17:08:17Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates users table
-badges [users] 2020-05-28T17:27:54Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates badges table
+users [appschema accounts] 2020-05-28T17:08:17Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates users table.
+jwt 2020-07-02T13:50:36Z Rahul Padalkar <rahul@tarkalabs.com> # Added JWT token type.
+badges [users jwt] 2020-05-28T17:27:54Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates badges table.
 postTypes [appschema] 2020-05-29T13:08:34Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the types of posts.
 posts [appschema postTypes] 2020-05-29T13:24:39Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the posts.
 postLinks [appschema posts] 2020-05-29T13:46:32Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the post links.
@@ -18,11 +19,9 @@ voteTypes [appschema] 2020-06-01T12:49:51Z Samuel Beaulieu <samuel.beaulieu@tark
 votes [appschema posts users] 2020-06-01T13:02:52Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the votes.
 insert_seed_data [appschema accounts badges comments postHistory postLinks posts tags users votes] 2020-07-03T15:19:29Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Contains the functions necessary to add the seed data.
 dataRows [appschema insert_seed_data] 2020-06-01T13:42:27Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # The rows to be inserted.
-@v1.0.0-dev1 2020-06-03T17:22:19Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Tag v1.0.0-dev1.
 timestamp_triggers [posts users appschema] 2020-06-29T14:03:36Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates the triggers that update timestamps.
 example_badge_triggers [badges users appschema] 2020-06-29T16:29:49Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Example badge triggers for demonstration purposes.
 register_user [accounts users] 2020-06-26T12:30:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added function to register a new user
-jwt 2020-07-02T13:50:36Z Rahul Padalkar <rahul@tarkalabs.com> # Added JWT token
 authentication [jwt accounts users] 2020-07-02T13:48:53Z Rahul Padalkar <rahul@tarkalabs.com> # Added authentication function
 posts_rls_comments [posts roles] 2020-07-02T14:32:52Z Rahul Padalkar <rahul@tarkalabs.com> # Added row level security and comments on posts table
 register_superuser [appschema users accounts roles] 2020-07-07T08:38:14Z Rahul Padalkar <rahul@tarkalabs.com> # Added function to register superuser
