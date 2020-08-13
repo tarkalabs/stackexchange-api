@@ -2,6 +2,7 @@
 -- requires: appschema
 -- requires: posts
 -- requires: users
+-- requires: jwt
 
 BEGIN;
 
