@@ -11,7 +11,7 @@ badges [users jwt] 2020-05-28T17:27:54Z Samuel Beaulieu <samuel.beaulieu@tarkala
 postTypes [appschema] 2020-05-29T13:08:34Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the types of posts.
 posts [appschema postTypes users jwt] 2020-05-29T13:24:39Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the posts.
 postLinks [appschema posts] 2020-05-29T13:46:32Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the post links.
-comments [appschema posts users] 2020-06-01T12:18:00Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the comments.
+comments [appschema posts users jwt] 2020-06-01T12:18:00Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the comments.
 tags [appschema posts] 2020-06-01T12:33:35Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the tags.
 postHistoryTypes [appschema] 2020-06-01T12:37:55Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the post history types.
 postHistory [appschema users posts postHistoryTypes] 2020-06-01T12:42:29Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the post edit history.
