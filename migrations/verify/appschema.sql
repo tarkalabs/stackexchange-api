@@ -2,11 +2,15 @@
 
 BEGIN;
 
-SELECT pg_catalog.has_schema_privilege('stackdump', 'usage');
-SELECT pg_catalog.has_schema_privilege('stackdump_private', 'usage');
-SELECT pg_catalog.has_schema_privilege('extensions', 'usage');
+DO $$
+    BEGIN
+        ASSERT(SELECT 1 FROM information_schema.schemata WHERE schema_name = 'stackdump'), 'Schema stackdump does not exist.';
+        ASSERT(SELECT 1 FROM information_schema.schemata WHERE schema_name = 'stackdump_private'), 'Schema stackdump_private does not exist.';
+        ASSERT(SELECT 1 FROM information_schema.schemata WHERE schema_name = 'extensions'), 'Schema extensions does not exist.';
 
-SELECT pg_catalog.has_function_privilege('extensions.crypt(TEXT,TEXT)', 'execute');
-SELECT pg_catalog.has_function_privilege('extensions.uuid_generate_v4()', 'execute');
+        ASSERT(SELECT 1 FROM pg_extension WHERE extname = 'pgcrypto'), 'Extension pgcrypto was not installed.';
+        ASSERT(SELECT 1 FROM pg_extension WHERE extname = 'uuid-ossp'), 'Extension uuid-ossp was not installed.';
+    END;
+$$ LANGUAGE PLPGSQL;
 
 ROLLBACK;
