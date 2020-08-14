@@ -37,11 +37,10 @@ post_view [appschema posts] 2020-07-14T16:40:30Z Samuel Beaulieu <samuel.beaulie
 comment_triggers [appschema comments] 2020-07-15T14:52:42Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Triggers on add/delete comment.
 post_triggers [appschema posts postHistory tags] 2020-07-15T14:54:07Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Triggers on add/delete posts.
 vote_triggers [appschema posts users] 2020-07-15T14:55:29Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Triggers on add/delete votes.
-tags_rls_comments [appschema tags roles] 2020-07-06T07:16:07Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments on Tags table
-grants_tags [appschema tags roles] 2020-07-06T07:21:14Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants Tags table
-votes_rls_comments [appschema votes roles] 2020-07-06T08:42:19Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments to votes table
-grants_votes [appschema votes roles] 2020-07-06T09:10:18Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table votes
-grants_votetypes [appschema votes roles] 2020-07-06T12:30:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table votetypes table
-grants_posttypes [appschema posts roles] 2020-07-06T12:33:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table posttypes
-votes_before_insert_trigger [appschema votes] 2020-07-07T05:44:39Z Rahul Padalkar <rahul@tarkalabs.com> # Added before insert trigger for vote table
+tags_rls_comments [appschema tags roles] 2020-07-06T07:16:07Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments on Tags table.
+grants_tags [appschema tags roles] 2020-07-06T07:21:14Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants Tags table.
+votes_rls_comments [appschema votes roles] 2020-07-06T08:42:19Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments to votes table.
+grants_votes [appschema votes roles] 2020-07-06T09:10:18Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table votes.
+grants_votetypes [appschema votes roles] 2020-07-06T12:30:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table votetypes table.
+grants_posttypes [appschema posts roles] 2020-07-06T12:33:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table posttypes.
 post_rollback [appschema posts postHistory post_triggers] 2020-08-05T19:35:12Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates a stored procedure to rollback a post's changes.

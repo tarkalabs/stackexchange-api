@@ -2,10 +2,13 @@
 
 BEGIN;
 
-/*SELECT 1 FROM pg_policies WHERE policyname='policy_insert_votes';
-SELECT 1 FROM pg_policies WHERE policyname='policy_delete_votes';
-SELECT 1 FROM pg_policies WHERE policyname='policy_select_votes';*/
-SELECT 1+1;
-
+DO $$
+    BEGIN
+        ASSERT LENGTH((SELECT col_description((SELECT 'stackdump.votes'::regclass::oid), 1)))::boolean, 'Votes id smart comment not created.';
+        ASSERT LENGTH((SELECT col_description((SELECT 'stackdump.votes'::regclass::oid), 4)))::boolean, 'Votes userId smart comment not created.';
+        ASSERT LENGTH((SELECT col_description((SELECT 'stackdump.votes'::regclass::oid), 5)))::boolean, 'Votes creationDate smart comment not created.';
+        ASSERT LENGTH((SELECT col_description((SELECT 'stackdump.votes'::regclass::oid), 6)))::boolean, 'Votes bountyAmount smart comment not created.';
+    END;
+$$ LANGUAGE PLPGSQL;
 
 ROLLBACK;
