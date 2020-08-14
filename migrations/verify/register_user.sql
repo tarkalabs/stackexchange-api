@@ -1,6 +1,10 @@
 -- Verify stackdump:register_user on pg
 BEGIN;
 
-SELECT has_function_privilege('stackdump.register_user(TEXT, TEXT)', 'execute');
+DO $$
+    BEGIN
+        ASSERT(SELECT 1 FROM pg_catalog.pg_proc WHERE proname = 'register_user'), 'Function register_user was not created.';
+    END;
+$$ LANGUAGE PLPGSQL;
 
 ROLLBACK;

@@ -2,6 +2,10 @@
 
 BEGIN;
 
-SELECT has_function_privilege('stackdump.authenticate(TEXT, TEXT)', 'execute');
+DO $$
+    BEGIN
+        ASSERT(SELECT 1 FROM pg_catalog.pg_proc WHERE proname = 'authenticate'), 'Function authenticate was not created.';
+    END;
+$$ LANGUAGE PLPGSQL;
 
 ROLLBACK;

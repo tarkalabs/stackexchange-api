@@ -23,11 +23,11 @@ timestamp_triggers [posts users appschema] 2020-06-29T14:03:36Z Samuel Beaulieu 
 example_badge_triggers [badges users appschema] 2020-06-29T16:29:49Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Example badge triggers for demonstration purposes.
 register_user [accounts users] 2020-06-26T12:30:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added function to register a new user.
 authentication [jwt accounts users] 2020-07-02T13:48:53Z Rahul Padalkar <rahul@tarkalabs.com> # Added authentication function.
-posts_rls_comments [posts roles] 2020-07-02T14:32:52Z Rahul Padalkar <rahul@tarkalabs.com> # Added row level security and comments on posts table
-register_superuser [appschema users accounts roles] 2020-07-07T08:38:14Z Rahul Padalkar <rahul@tarkalabs.com> # Added function to register superuser
-grants [roles appschema authentication register_user posts] 2020-07-02T14:57:54Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants to functions and tables
-user_rls_comments [users appschema roles] 2020-07-03T06:00:00Z Rahul Padalkar <rahul@tarkalabs.com> # Added rls and comments for users table
-grants_user [roles appschema users] 2020-07-03T06:29:40Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for roles on users table
+posts_rls_comments [posts roles] 2020-07-02T14:32:52Z Rahul Padalkar <rahul@tarkalabs.com> # Added row level security and comments on posts table.
+register_superuser [appschema users accounts roles] 2020-07-07T08:38:14Z Rahul Padalkar <rahul@tarkalabs.com> # Added function to register superuser.
+grants [roles appschema authentication register_user posts] 2020-07-02T14:57:54Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants to functions and tables.
+user_rls_comments [users appschema roles] 2020-07-03T06:00:00Z Rahul Padalkar <rahul@tarkalabs.com> # Added rls and comments for users table.
+grants_user [roles appschema users] 2020-07-03T06:29:40Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for roles on users table.
 cmt_rls_comments [appschema comments roles] 2020-07-03T06:56:03Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments on comment table
 grants_comments [comments appschema roles] 2020-07-03T09:28:09Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table comments
 badges_rls_comments [appschema badges roles] 2020-07-06T05:43:16Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments on badges table

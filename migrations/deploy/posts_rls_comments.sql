@@ -6,12 +6,12 @@ BEGIN;
 
 COMMENT ON COLUMN stackdump.posts.id IS E'@omit create,update';
 COMMENT ON COLUMN stackdump.posts.acceptedAnswerId IS E'@omit create,update';
-COMMENT ON COLUMN stackdump.posts.lastEditorUserId IS E'@omit create,update';
 COMMENT ON COLUMN stackdump.posts.creationDate IS E'@omit create,update';
 COMMENT ON COLUMN stackdump.posts.score IS E'@omit create,update';
 COMMENT ON COLUMN stackdump.posts.viewCount IS E'@omit create,update';
 COMMENT ON COLUMN stackdump.posts.ownerUserId IS E'@omit create,update';
 COMMENT ON COLUMN stackdump.posts.ownerDisplayName IS E'@omit create,update';
+COMMENT ON COLUMN stackdump.posts.lastEditorUserId IS E'@omit create,update';
 COMMENT ON COLUMN stackdump.posts.lastEditDate IS E'@omit create,update';
 COMMENT ON COLUMN stackdump.posts.lastActivityDate IS E'@omit create,update';
 COMMENT ON COLUMN stackdump.posts.answerCount IS E'@omit create,update';
