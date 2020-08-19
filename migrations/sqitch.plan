@@ -1,46 +1,46 @@
 %syntax-version=1.0.0
-%project=stackdump
-%uri=https://github.com/WafflesonFire/stackdump/
+%project=stackexchange_api
+%uri=https://github.com/tarkalabs/stackexchange-api/
 
-appschema 2020-05-28T15:04:28Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Add schema for stackdump.
-roles 2020-07-02T13:58:18Z Rahul Padalkar <rahul@tarkalabs.com> # Added roles to be used in row level security.
-accounts [appschema] 2020-06-23T00:51:58Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates table to track accounts.
-users [appschema accounts] 2020-05-28T17:08:17Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates users table.
-jwt 2020-07-02T13:50:36Z Rahul Padalkar <rahul@tarkalabs.com> # Added JWT token type.
-badges [users jwt] 2020-05-28T17:27:54Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates badges table.
-postTypes [appschema] 2020-05-29T13:08:34Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the types of posts.
-posts [appschema postTypes users jwt] 2020-05-29T13:24:39Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the posts.
-postLinks [appschema posts] 2020-05-29T13:46:32Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the post links.
-comments [appschema posts users jwt] 2020-06-01T12:18:00Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the comments.
-tags [appschema posts] 2020-06-01T12:33:35Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the tags.
-postHistoryTypes [appschema] 2020-06-01T12:37:55Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the post history types.
-postHistory [appschema users posts postHistoryTypes] 2020-06-01T12:42:29Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the post edit history.
-voteTypes [appschema] 2020-06-01T12:49:51Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the vote types.
-votes [appschema posts users jwt] 2020-06-01T13:02:52Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the votes.
-insert_seed_data [appschema accounts badges comments postHistory postLinks posts tags users votes] 2020-07-03T15:19:29Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Contains the functions necessary to add the seed data.
-dataRows [appschema insert_seed_data] 2020-06-01T13:42:27Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # The rows to be inserted.
-timestamp_triggers [posts users appschema] 2020-06-29T14:03:36Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates the triggers that update timestamps.
-example_badge_triggers [badges users appschema] 2020-06-29T16:29:49Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Example badge triggers for demonstration purposes.
-register_user [accounts users] 2020-06-26T12:30:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added function to register a new user.
-authentication [jwt accounts users] 2020-07-02T13:48:53Z Rahul Padalkar <rahul@tarkalabs.com> # Added authentication function.
-posts_rls_comments [posts roles] 2020-07-02T14:32:52Z Rahul Padalkar <rahul@tarkalabs.com> # Added row level security and comments on posts table.
-register_superuser [appschema users accounts roles] 2020-07-07T08:38:14Z Rahul Padalkar <rahul@tarkalabs.com> # Added function to register superuser.
-grants [roles appschema authentication register_user posts] 2020-07-02T14:57:54Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants to functions and tables.
-user_rls_comments [users appschema roles] 2020-07-03T06:00:00Z Rahul Padalkar <rahul@tarkalabs.com> # Added rls and comments for users table.
-grants_user [roles appschema users] 2020-07-03T06:29:40Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for roles on users table.
-cmt_rls_comments [appschema comments roles] 2020-07-03T06:56:03Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments on comment table.
-grants_comments [comments appschema roles] 2020-07-03T09:28:09Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table comments.
-badges_rls_comments [appschema badges roles] 2020-07-06T05:43:16Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments on badges table.
-grants_badges [appschema badges roles] 2020-07-06T05:56:54Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for badges table.
-text_search [dataRows posts appschema] 2020-07-06T13:20:51Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Implements text searching.
-post_view [appschema posts] 2020-07-14T16:40:30Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates a view to hide deleted posts.
-comment_triggers [appschema comments] 2020-07-15T14:52:42Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Triggers on add/delete comment.
-post_triggers [appschema posts postHistory tags] 2020-07-15T14:54:07Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Triggers on add/delete posts.
-vote_triggers [appschema posts users] 2020-07-15T14:55:29Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Triggers on add/delete votes.
-tags_rls_comments [appschema tags roles] 2020-07-06T07:16:07Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments on Tags table.
-grants_tags [appschema tags roles] 2020-07-06T07:21:14Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants Tags table.
-votes_rls_comments [appschema votes roles] 2020-07-06T08:42:19Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments to votes table.
-grants_votes [appschema votes roles] 2020-07-06T09:10:18Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table votes.
-grants_votetypes [appschema votes roles] 2020-07-06T12:30:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table votetypes table.
-grants_posttypes [appschema posts roles] 2020-07-06T12:33:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table posttypes.
-post_rollback [appschema posts postHistory post_triggers] 2020-08-05T19:35:12Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates a stored procedure to rollback a post's changes.
+schema/appschema 2020-05-28T15:04:28Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Add schema for stackdump.
+schema/roles 2020-07-02T13:58:18Z Rahul Padalkar <rahul@tarkalabs.com> # Added roles to be used in row level security.
+users/accounts [schema/appschema] 2020-06-23T00:51:58Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates table to track accounts.
+users/users [schema/appschema users/accounts] 2020-05-28T17:08:17Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates users table.
+schema/jwt 2020-07-02T13:50:36Z Rahul Padalkar <rahul@tarkalabs.com> # Added JWT token type.
+badges/badges [users/users schema/jwt] 2020-05-28T17:27:54Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates badges table.
+posts/postTypes [schema/appschema] 2020-05-29T13:08:34Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the types of posts.
+posts/posts [schema/appschema posts/postTypes users/users schema/jwt] 2020-05-29T13:24:39Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the posts.
+postLinks/postLinks [schema/appschema posts/posts] 2020-05-29T13:46:32Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the post links.
+comments/comments [schema/appschema posts/posts users/users schema/jwt] 2020-06-01T12:18:00Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the comments.
+tags/tags [schema/appschema posts/posts] 2020-06-01T12:33:35Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the tags.
+postHistory/postHistoryTypes [schema/appschema] 2020-06-01T12:37:55Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the post history types.
+postHistory/postHistory [schema/appschema users/users posts/posts postHistory/postHistoryTypes] 2020-06-01T12:42:29Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the post edit history.
+votes/voteTypes [schema/appschema] 2020-06-01T12:49:51Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the vote types.
+votes/votes [schema/appschema posts/posts users/users schema/jwt] 2020-06-01T13:02:52Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the votes.
+data/insert_seed_data [schema/appschema users/accounts badges/badges comments/comments postHistory/postHistory postLinks/postLinks posts/posts tags/tags users/users votes/votes] 2020-07-03T15:19:29Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Contains the functions necessary to add the seed data.
+data/dataRows [schema/appschema data/insert_seed_data] 2020-06-01T13:42:27Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # The rows to be inserted.
+posts/timestamp_triggers [posts/posts users/users schema/appschema] 2020-06-29T14:03:36Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates the triggers that update timestamps.
+badges/example_badge_triggers [badges/badges users/users schema/appschema] 2020-06-29T16:29:49Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Example badge triggers for demonstration purposes.
+users/register_user [users/accounts users/users] 2020-06-26T12:30:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added function to register a new user.
+users/authentication [schema/jwt users/accounts users/users] 2020-07-02T13:48:53Z Rahul Padalkar <rahul@tarkalabs.com> # Added authentication function.
+posts/posts_rls_comments [posts/posts schema/roles] 2020-07-02T14:32:52Z Rahul Padalkar <rahul@tarkalabs.com> # Added row level security and comments on posts table.
+users/register_superuser [schema/appschema users/users users/accounts schema/roles] 2020-07-07T08:38:14Z Rahul Padalkar <rahul@tarkalabs.com> # Added function to register superuser.
+schema/grants [schema/roles schema/appschema users/authentication users/register_user posts/posts] 2020-07-02T14:57:54Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants to functions and tables.
+users/user_rls_comments [users/users schema/appschema schema/roles] 2020-07-03T06:00:00Z Rahul Padalkar <rahul@tarkalabs.com> # Added rls and comments for users table.
+users/grants_user [schema/roles schema/appschema users/users] 2020-07-03T06:29:40Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for roles on users table.
+comments/cmt_rls_comments [schema/appschema comments/comments schema/roles] 2020-07-03T06:56:03Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments on comment table.
+comments/grants_comments [comments/comments schema/appschema schema/roles] 2020-07-03T09:28:09Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table comments.
+badges/badges_rls_comments [schema/appschema badges/badges schema/roles] 2020-07-06T05:43:16Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments on badges table.
+badges/grants_badges [schema/appschema badges/badges schema/roles] 2020-07-06T05:56:54Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for badges table.
+posts/text_search [data/dataRows posts/posts schema/appschema] 2020-07-06T13:20:51Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Implements text searching.
+posts/post_view [schema/appschema posts/posts] 2020-07-14T16:40:30Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates a view to hide deleted posts.
+comments/comment_triggers [schema/appschema comments/comments] 2020-07-15T14:52:42Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Triggers on add/delete comment.
+posts/post_triggers [schema/appschema posts/posts postHistory/postHistory tags/tags] 2020-07-15T14:54:07Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Triggers on add/delete posts.
+votes/vote_triggers [schema/appschema posts/posts users/users] 2020-07-15T14:55:29Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Triggers on add/delete votes.
+tags/tags_rls_comments [schema/appschema tags/tags schema/roles] 2020-07-06T07:16:07Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments on Tags table.
+tags/grants_tags [schema/appschema tags/tags schema/roles] 2020-07-06T07:21:14Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants Tags table.
+votes/votes_rls_comments [schema/appschema votes/votes schema/roles] 2020-07-06T08:42:19Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments to votes table.
+votes/grants_votes [schema/appschema votes/votes schema/roles] 2020-07-06T09:10:18Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table votes.
+votes/grants_votetypes [schema/appschema votes/votes schema/roles] 2020-07-06T12:30:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table votetypes table.
+posts/grants_posttypes [schema/appschema posts/posts schema/roles] 2020-07-06T12:33:26Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for table posttypes.
+posts/post_rollback [schema/appschema posts/posts postHistory/postHistory posts/post_triggers] 2020-08-05T19:35:12Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates a stored procedure to rollback a post's changes.
