@@ -8,7 +8,7 @@ BEGIN;
 
 CREATE TABLE stackdump.posts(
 id SERIAL PRIMARY KEY,
-postTypeId INTEGER REFERENCES stackdump.postTypes(id),
+postTypeId INTEGER REFERENCES stackdump.postTypes(id) NOT NULL,
 acceptedAnswerId INTEGER REFERENCES stackdump.posts(id),
 parentId INTEGER REFERENCES stackdump.posts(id) ON DELETE CASCADE,
 creationDate TIMESTAMP DEFAULT NOW(),
