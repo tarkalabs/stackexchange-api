@@ -1,8 +1,8 @@
--- Deploy stackdump:post_triggers to pg
--- requires: appschema
--- requires: posts
--- requires: postHistory
--- requires: tags
+-- Deploy stackexchange_api:posts/post_triggers to pg
+-- requires: schema/appschema
+-- requires: posts/posts
+-- requires: postHistory/postHistory
+-- requires: tags/tags
 
 BEGIN;
 

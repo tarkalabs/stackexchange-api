@@ -1,5 +1,5 @@
--- Deploy stackdump:voteTypes to pg
--- requires: appschema
+-- Deploy stackexchange_api:votes/voteTypes to pg
+-- requires: schema/appschema
 
 BEGIN;
 

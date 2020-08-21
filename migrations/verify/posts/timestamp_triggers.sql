@@ -1,4 +1,4 @@
--- Verify stackdump:timestamp_triggers on pg
+-- Verify stackexchange_api:posts/timestamp_triggers on pg
 
 BEGIN;
 

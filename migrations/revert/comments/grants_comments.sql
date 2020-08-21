@@ -1,4 +1,4 @@
--- Revert stackdump:grants_comments from pg
+-- Revert stackexchange_api:comments/grants_comments from pg
 
 BEGIN;
 

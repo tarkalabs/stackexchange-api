@@ -1,4 +1,4 @@
--- Revert stackdump:register_superuser from pg
+-- Revert stackexchange_api:users/register_superuser from pg
 
 BEGIN;
 

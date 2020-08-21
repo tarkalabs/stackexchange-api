@@ -1,7 +1,7 @@
--- Deploy stackdump:grants_user to pg
--- requires: roles
--- requires: appschema
--- requires: users
+-- Deploy stackexchange_api:users/grants_user to pg
+-- requires: schema/roles
+-- requires: schema/appschema
+-- requires: users/users
 
 BEGIN;
 

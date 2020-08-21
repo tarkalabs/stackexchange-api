@@ -1,6 +1,6 @@
--- Deploy stackdump:posts_rls_comments to pg
--- requires: posts
--- requires: roles
+-- Deploy stackexchange_api:posts/posts_rls_comments to pg
+-- requires: posts/posts
+-- requires: schema/roles
 
 BEGIN;
 

@@ -1,4 +1,4 @@
--- Revert stackdump:cmt_rls_comments from pg
+-- Revert stackexchange_api:comments/cmt_rls_comments from pg
 
 BEGIN;
 

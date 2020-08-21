@@ -1,4 +1,4 @@
--- Verify stackdump:postHistoryTypes on pg
+-- Verify stackexchange_api:postHistory/postHistoryTypes on pg
 
 BEGIN;
 

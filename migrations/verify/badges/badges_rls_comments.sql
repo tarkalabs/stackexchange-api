@@ -1,4 +1,4 @@
--- Verify stackdump:badges_rls_comments on pg
+-- Verify stackexchange_api:badges/badges_rls_comments on pg
 
 BEGIN;
 

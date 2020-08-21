@@ -1,4 +1,4 @@
--- Verify stackdump:grants_badges on pg
+-- Verify stackexchange_api:badges/grants_badges on pg
 
 BEGIN;
 

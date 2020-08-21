@@ -1,4 +1,4 @@
--- Revert stackdump:post_triggers from pg
+-- Revert stackexchange_api:posts/post_triggers from pg
 
 BEGIN;
 

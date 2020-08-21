@@ -1,5 +1,5 @@
--- Deploy stackdump:accounts to pg
--- requires: appschema
+-- Deploy stackexchange_api:users/accounts to pg
+-- requires: schema/appschema
 
 BEGIN;
 

@@ -1,7 +1,7 @@
--- Deploy stackdump:vote_triggers to pg
--- requires: appschema
--- requires: posts
--- requires: users
+-- Deploy stackexchange_api:votes/vote_triggers to pg
+-- requires: schema/appschema
+-- requires: posts/posts
+-- requires: users/users
 
 BEGIN;
 

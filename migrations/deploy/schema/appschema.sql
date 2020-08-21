@@ -1,4 +1,4 @@
--- Deploy stackdump:appschema to pg
+-- Deploy stackexchange_api:schema/appschema to pg
 
 BEGIN;
 

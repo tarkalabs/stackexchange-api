@@ -1,4 +1,4 @@
--- Deploy stackdump:roles to pg
+-- Deploy stackexchange_api:schema/roles to pg
 
 BEGIN;
 

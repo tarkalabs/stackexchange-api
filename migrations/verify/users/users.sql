@@ -1,4 +1,4 @@
--- Verify stackdump:users on pg
+-- Verify stackexchange_api:users/users on pg
 
 BEGIN;
 

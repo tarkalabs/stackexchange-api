@@ -1,4 +1,4 @@
--- Verify stackdump:register_user on pg
+-- Verify stackexchange_api:users/register_user on pg
 BEGIN;
 
 DO $$

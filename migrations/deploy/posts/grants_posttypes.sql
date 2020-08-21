@@ -1,7 +1,7 @@
--- Deploy stackdump:grants_posttypes to pg
--- requires: appschema
--- requires: posts
--- requires: roles
+-- Deploy stackexchange_api:posts/grants_posttypes to pg
+-- requires: schema/appschema
+-- requires: posts/posts
+-- requires: schema/roles
 
 BEGIN;
 

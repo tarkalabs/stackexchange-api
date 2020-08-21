@@ -1,4 +1,4 @@
--- Verify stackdump:grants_comments on pg
+-- Verify stackexchange_api:comments/grants_comments on pg
 
 BEGIN;
 

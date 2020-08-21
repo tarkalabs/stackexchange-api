@@ -1,4 +1,4 @@
--- Verify stackdump:tags on pg
+-- Verify stackexchange_api:tags/tags on pg
 
 BEGIN;
 

@@ -1,7 +1,7 @@
--- Deploy stackdump:grants_tgs to pg
--- requires: appschema
--- requires: tags
--- requires: roles
+-- Deploy stackexchange_api:tags/grants_tgs to pg
+-- requires: schema/appschema
+-- requires: tags/tags
+-- requires: schema/roles
 
 BEGIN;
 

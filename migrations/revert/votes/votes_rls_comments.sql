@@ -1,4 +1,4 @@
--- Revert stackdump:votes_rls_comments from pg
+-- Revert stackexchange_api:votes/votes_rls_comments from pg
 
 BEGIN;
 

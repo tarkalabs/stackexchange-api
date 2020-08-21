@@ -1,4 +1,4 @@
--- Revert stackdump:insert_seed_data from pg
+-- Revert stackexchange_api:data/insert_seed_data from pg
 
 BEGIN;
 

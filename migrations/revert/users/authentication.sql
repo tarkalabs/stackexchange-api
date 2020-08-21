@@ -1,4 +1,4 @@
--- Revert stackdump:authentication from pg
+-- Revert stackexchange_api:users/authentication from pg
 
 BEGIN;
 

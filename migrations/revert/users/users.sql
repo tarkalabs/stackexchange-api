@@ -1,4 +1,4 @@
--- Revert stackdump:users from pg
+-- Revert stackexchange_api:users/users from pg
 
 BEGIN;
 

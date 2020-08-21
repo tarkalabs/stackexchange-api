@@ -1,4 +1,4 @@
--- Revert stackdump:grants_posttypes from pg
+-- Revert stackexchange_api:posts/grants_posttypes from pg
 
 BEGIN;
 

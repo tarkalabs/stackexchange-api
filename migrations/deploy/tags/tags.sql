@@ -1,6 +1,6 @@
--- Deploy stackdump:tags to pg
--- requires: appschema
--- requires: posts
+-- Deploy stackexchange_api:tags/tags to pg
+-- requires: schema/appschema
+-- requires: posts/posts
 
 BEGIN;
 

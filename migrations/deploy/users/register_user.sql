@@ -1,7 +1,7 @@
--- Deploy stackdump:register_user to pg
--- requires: appschema
--- requires: accounts
--- requires: users
+-- Deploy stackexchange_api:users/register_user to pg
+-- requires: schema/appschema
+-- requires: users/accounts
+-- requires: users/users
 
 BEGIN;
 

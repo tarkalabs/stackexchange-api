@@ -1,7 +1,7 @@
--- Deploy stackdump:cmt_rls_comments to pg
--- requires: appschema
--- requires: comments
--- requires: roles
+-- Deploy stackexchange_api:comments/cmt_rls_comments to pg
+-- requires: schema/appschema
+-- requires: comments/comments
+-- requires: schema/roles
 
 BEGIN;
 

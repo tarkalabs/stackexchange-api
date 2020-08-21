@@ -1,4 +1,4 @@
--- Verify stackdump:dataRows on pg
+-- Verify stackexchange_api:data/dataRows on pg
 
 BEGIN;
 

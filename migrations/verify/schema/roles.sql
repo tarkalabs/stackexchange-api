@@ -1,4 +1,4 @@
--- Verify stackdump:roles on pg
+-- Verify stackexchange_api:schema/roles on pg
 
 BEGIN;
 DO $$

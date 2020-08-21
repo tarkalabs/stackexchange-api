@@ -1,4 +1,4 @@
--- Verify stackdump:register_superuser on pg
+-- Verify stackexchange_api:users/register_superuser on pg
 
 BEGIN;
 

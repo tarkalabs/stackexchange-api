@@ -1,4 +1,4 @@
--- Verify stackdump:text_search on pg
+-- Verify stackexchange_api:posts/text_search on pg
 
 BEGIN;
 

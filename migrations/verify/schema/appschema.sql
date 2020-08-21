@@ -1,4 +1,4 @@
--- Verify stackdump:appschema on pg
+-- Verify stackexchange_api:schema/appschema on pg
 
 BEGIN;
 

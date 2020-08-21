@@ -7,7 +7,7 @@ schema/roles 2020-07-02T13:58:18Z Rahul Padalkar <rahul@tarkalabs.com> # Added r
 users/accounts [schema/appschema] 2020-06-23T00:51:58Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates table to track accounts.
 users/users [schema/appschema users/accounts] 2020-05-28T17:08:17Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates users table.
 schema/jwt 2020-07-02T13:50:36Z Rahul Padalkar <rahul@tarkalabs.com> # Added JWT token type.
-badges/badges [users/users schema/jwt] 2020-05-28T17:27:54Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates badges table.
+badges/badges [schema/appschema users/users schema/jwt] 2020-05-28T17:27:54Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Creates badges table.
 posts/postTypes [schema/appschema] 2020-05-29T13:08:34Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the types of posts.
 posts/posts [schema/appschema posts/postTypes users/users schema/jwt] 2020-05-29T13:24:39Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the posts.
 postLinks/postLinks [schema/appschema posts/posts] 2020-05-29T13:46:32Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # A list of the post links.

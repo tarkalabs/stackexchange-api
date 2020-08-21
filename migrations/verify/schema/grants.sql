@@ -1,4 +1,4 @@
--- Verify stackdump:grants on pg
+-- Verify stackexchange_api:schema/grants on pg
 
 BEGIN;
 

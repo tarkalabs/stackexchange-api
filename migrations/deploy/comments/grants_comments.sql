@@ -1,7 +1,7 @@
--- Deploy stackdump:grants_comments to pg
--- requires: comments
--- requires: appschema
--- requires: roles
+-- Deploy stackexchange_api:comments/grants_comments to pg
+-- requires: comments/comments
+-- requires: schema/appschema
+-- requires: schema/roles
 
 BEGIN;
 

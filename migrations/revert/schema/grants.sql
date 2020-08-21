@@ -1,4 +1,4 @@
--- Revert stackdump:grants from pg
+-- Revert stackexchange_api:schema/grants from pg
 
 BEGIN;
 

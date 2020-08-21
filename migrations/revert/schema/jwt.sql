@@ -1,4 +1,4 @@
--- Revert stackdump:jwt_type from pg
+-- Revert stackexchange_api:schema/jwt from pg
 
 BEGIN;
 

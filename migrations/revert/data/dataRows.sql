@@ -1,4 +1,4 @@
--- Revert stackdump:dataRows from pg
+-- Revert stackexchange_api:data/dataRows from pg
 
 BEGIN;
 

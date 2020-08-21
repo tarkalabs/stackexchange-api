@@ -1,5 +1,5 @@
--- Deploy stackdump:postTypes to pg
--- requires: appschema
+-- Deploy stackexchange_api:posts/postTypes to pg
+-- requires: schema/appschema
 
 BEGIN;
 

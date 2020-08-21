@@ -1,4 +1,4 @@
--- Revert stackdump:example_badge_triggers from pg
+-- Revert stackexchange_api:badges/example_badge_triggers from pg
 
 BEGIN;
 

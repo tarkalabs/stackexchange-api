@@ -1,14 +1,14 @@
--- Deploy stackdump:insert_seed_data to pg
--- requires: appschema
--- requires: accounts
--- requires: badges
--- requires: comments
--- requires: postHistory
--- requires: postLinks
--- requires: posts
--- requires: tags
--- requires: users
--- requires: votes
+-- Deploy stackexchange_api:data/insert_seed_data to pg
+-- requires: schema/appschema
+-- requires: users/accounts
+-- requires: badges/badges
+-- requires: comments/comments
+-- requires: postHistory/postHistory
+-- requires: postLinks/postLinks
+-- requires: posts/posts
+-- requires: tags/tags
+-- requires: users/users
+-- requires: votes/votes
 
 BEGIN;
 

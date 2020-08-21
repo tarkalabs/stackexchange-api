@@ -1,4 +1,4 @@
--- Revert stackdump:grants_user from pg
+-- Revert stackexchange_api:users/grants_user from pg
 
 BEGIN;
 

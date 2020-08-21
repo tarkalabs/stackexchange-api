@@ -1,4 +1,4 @@
--- Revert stackdump:grants_badges from pg
+-- Revert stackexchange_api:badges/grants_badges from pg
 
 BEGIN;
 

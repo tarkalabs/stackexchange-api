@@ -1,4 +1,4 @@
--- Revert stackdump:text_search from pg
+-- Revert stackexchange_api:posts/text_search from pg
 
 BEGIN;
 

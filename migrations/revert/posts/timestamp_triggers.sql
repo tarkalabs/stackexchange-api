@@ -1,4 +1,4 @@
--- Revert stackdump:timestamp_triggers from pg
+-- Revert stackexchange_api:posts/timestamp_triggers from pg
 
 BEGIN;
 

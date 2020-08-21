@@ -1,4 +1,4 @@
--- Revert stackdump:user_rls_comments from pg
+-- Revert stackexchange_api:users/user_rls_comments from pg
 
 BEGIN;
 

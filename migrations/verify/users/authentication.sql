@@ -1,4 +1,4 @@
--- Verify stackdump:authentication on pg
+-- Verify stackexchange_api:users/authentication on pg
 
 BEGIN;
 

@@ -1,6 +1,6 @@
--- Deploy stackdump:postLinks to pg
--- requires: appschema
--- requires: posts
+-- Deploy stackexchange_api:postLinks/postLinks to pg
+-- requires: schema/appschema
+-- requires: posts/posts
 
 BEGIN;
 

@@ -1,7 +1,7 @@
--- Deploy stackdump:text_search to pg
--- requires: dataRows
--- requires: posts
--- requires: appschema
+-- Deploy stackexchange_api:posts/text_search to pg
+-- requires: data/dataRows
+-- requires: posts/posts
+-- requires: schema/appschema
 
 BEGIN;
 

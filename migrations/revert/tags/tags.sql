@@ -1,4 +1,4 @@
--- Revert stackdump:tags from pg
+-- Revert stackexchange_api:tags/tags from pg
 
 BEGIN;
 

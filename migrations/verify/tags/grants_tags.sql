@@ -1,4 +1,4 @@
--- Verify stackdump:grants_tgs on pg
+-- Verify stackexchange_api:tags/grants_tgs on pg
 
 BEGIN;
 

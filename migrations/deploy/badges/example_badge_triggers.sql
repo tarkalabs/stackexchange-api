@@ -1,7 +1,7 @@
--- Deploy stackdump:example_badge_triggers to pg
--- requires: badges
--- requires: users
--- requires: appschema
+-- Deploy stackexchange_api:badges/example_badge_triggers to pg
+-- requires: badges/badges
+-- requires: users/users
+-- requires: schema/appschema
 
 BEGIN;
 

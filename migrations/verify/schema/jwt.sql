@@ -1,4 +1,4 @@
--- Verify stackdump:jwt on pg
+-- Verify stackexchange_api:schema/jwt on pg
 
 BEGIN;
 

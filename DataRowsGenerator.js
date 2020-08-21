@@ -56,15 +56,15 @@ function generateQueries() {
                 .on('data', myListener)
                 .on('end', function () {
                 var lastId = processArray(splitText, xmlList[i], columnList, dataTypes);
-                fs.appendFileSync('./migrations/deploy/dataRows.sql', 'ALTER SEQUENCE stackdump.' + xmlList[i].replace('.xml', '').toLowerCase() + '_id_seq RESTART WITH ' + (lastId + 1) + ';\n');
+                fs.appendFileSync('./migrations/deploy/data/dataRows.sql', 'ALTER SEQUENCE stackdump.' + xmlList[i].replace('.xml', '').toLowerCase() + '_id_seq RESTART WITH ' + (lastId + 1) + ';\n');
                 if (i === 0) {
-                    fs.appendFileSync('./migrations/deploy/dataRows.sql', 'ALTER SEQUENCE stackdump_private.accounts_id_seq RESTART WITH ' + (lastId + 1) + ';\n');
+                    fs.appendFileSync('./migrations/deploy/data/dataRows.sql', 'ALTER SEQUENCE stackdump_private.accounts_id_seq RESTART WITH ' + (lastId + 1) + ';\n');
                 }
                 if (i === xmlList.length - 1) {
                     answerList.forEach(function (answer) {
-                        fs.appendFileSync('./migrations/deploy/dataRows.sql', 'SELECT stackdump.insert_seed_answer(' + answer[0] + ',' + answer[1] + ');\n');
+                        fs.appendFileSync('./migrations/deploy/data/dataRows.sql', 'SELECT stackdump.insert_seed_answer(' + answer[0] + ',' + answer[1] + ');\n');
                     });
-                    fs.appendFileSync('./migrations/deploy/dataRows.sql', '\nCOMMIT;');
+                    fs.appendFileSync('./migrations/deploy/data/dataRows.sql', '\nCOMMIT;');
                     cleanUp();
                 }
                 resolve();
@@ -136,7 +136,7 @@ function processArray(splitText, currentXml, columnList, dataTypes) {
                     if (columnList[j] === 'Id') {
                         currId = parseInt(value);
                         if (lowerFileName === 'users.xml') {
-                            fs.appendFileSync('./migrations/deploy/dataRows.sql', 'SELECT stackdump.insert_seed_account(' + currId + ');\n');
+                            fs.appendFileSync('./migrations/deploy/data/dataRows.sql', 'SELECT stackdump.insert_seed_account(' + currId + ');\n');
                         }
                         lastId = parseInt(value);
                     }
@@ -157,27 +157,27 @@ function processArray(splitText, currentXml, columnList, dataTypes) {
         }
         query += ');\n';
     });
-    fs.appendFileSync('./migrations/deploy/dataRows.sql', query);
+    fs.appendFileSync('./migrations/deploy/data/dataRows.sql', query);
     return lastId;
 }
 /*
 Generates the requires lines of the output file.
 */
 function generateDependencies() {
-    var query = '-- Deploy stackdump:dataRows to pg\n';
-    query += '-- requires: appschema\n';
-    query += '-- requires: badges\n';
-    query += '-- requires: comments\n';
-    query += '-- requires: postHistory\n';
-    query += '-- requires: postLinks\n';
-    query += '-- requires: posts\n';
-    query += '-- requires: tags\n';
-    query += '-- requires: users\n';
-    query += '-- requires: votes\n';
-    query += '-- requires: insert_seed_data\n';
+    var query = '-- Deploy stackexchange_api:data/dataRows to pg\n';
+    query += '-- requires: schema/appschema\n';
+    query += '-- requires: badges/badges\n';
+    query += '-- requires: comments/comments\n';
+    query += '-- requires: postHistory/postHistory\n';
+    query += '-- requires: postLinks/postLinks\n';
+    query += '-- requires: posts/posts\n';
+    query += '-- requires: tags/tags\n';
+    query += '-- requires: users/users\n';
+    query += '-- requires: votes/votes\n';
+    query += '-- requires: data/insert_seed_data\n';
     query += '\n';
     query += 'BEGIN;\n\n';
-    fs.writeFileSync('./migrations/deploy/dataRows.sql', query);
+    fs.writeFileSync('./migrations/deploy/data/dataRows.sql', query);
 }
 /*
 Generates a column list that contains the name of each column.

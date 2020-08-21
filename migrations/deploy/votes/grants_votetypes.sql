@@ -1,7 +1,7 @@
--- Deploy stackdump:grants_votetypes to pg
--- requires: appschema
--- requires: votes
--- requires: roles
+-- Deploy stackexchange_api:votes/grants_votetypes to pg
+-- requires: schema/appschema
+-- requires: votes/votes
+-- requires: schema/roles
 
 BEGIN;
 

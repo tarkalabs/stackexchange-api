@@ -1,8 +1,8 @@
--- Deploy stackdump:register_superuser to pg
--- requires: appschema
--- requires: users
--- requires: accounts
--- requires: roles
+-- Deploy stackexchange_api:users/register_superuser to pg
+-- requires: schema/appschema
+-- requires: users/users
+-- requires: users/accounts
+-- requires: schema/roles
 
 BEGIN;
 

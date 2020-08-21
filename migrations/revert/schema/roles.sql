@@ -1,4 +1,4 @@
--- Revert stackdump:roles from pg
+-- Revert stackexchange_api:schema/roles from pg
 
 BEGIN;
 

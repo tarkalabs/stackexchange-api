@@ -1,4 +1,4 @@
--- Verify stackdump:tags_rls_comments on pg
+-- Verify stackexchange_api:tags/tags_rls_comments on pg
 
 BEGIN;
 

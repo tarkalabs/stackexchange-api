@@ -1,4 +1,4 @@
--- Verify stackdump:grants_votes on pg
+-- Verify stackexchange_api:votes/grants_votes on pg
 
 BEGIN;
 

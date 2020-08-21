@@ -1,4 +1,4 @@
--- Revert stackdump:register_user from pg
+-- Revert stackexchange_api:users/register_user from pg
 
 BEGIN;
 

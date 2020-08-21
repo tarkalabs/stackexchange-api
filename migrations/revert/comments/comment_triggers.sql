@@ -1,4 +1,4 @@
--- Revert stackdump:comment_triggers from pg
+-- Revert stackexchange_api:comments/comment_triggers from pg
 
 BEGIN;
 

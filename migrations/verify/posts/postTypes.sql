@@ -1,4 +1,4 @@
--- Verify stackdump:postTypes on pg
+-- Verify stackexchange_api:posts/postTypes on pg
 
 BEGIN;
 

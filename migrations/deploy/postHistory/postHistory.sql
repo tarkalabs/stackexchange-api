@@ -1,8 +1,8 @@
--- Deploy stackdump:postHistory to pg
--- requires: appschema
--- requires: users
--- requires: posts
--- requires: postHistoryTypes
+-- Deploy stackexchange_api:postHistory/postHistory to pg
+-- requires: schema/appschema
+-- requires: users/users
+-- requires: posts/posts
+-- requires: postHistory/postHistoryTypes
 
 BEGIN;
 

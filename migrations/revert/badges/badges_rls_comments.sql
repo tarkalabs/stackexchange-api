@@ -1,4 +1,4 @@
--- Revert stackdump:badges_rls_comments from pg
+-- Revert stackexchange_api:badges/badges_rls_comments from pg
 
 BEGIN;
 

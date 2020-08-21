@@ -1,4 +1,4 @@
--- Verify stackdump:voteTypes on pg
+-- Verify stackexchange_api:votes/voteTypes on pg
 
 BEGIN;
 

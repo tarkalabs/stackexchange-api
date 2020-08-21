@@ -1,7 +1,7 @@
--- Deploy stackdump:grants_badges to pg
--- requires: appschema
--- requires: badges
--- requires: roles
+-- Deploy stackexchange_api:badges/grants_badges to pg
+-- requires: schema/appschema
+-- requires: badges/badges
+-- requires: schema/roles
 
 BEGIN;
 

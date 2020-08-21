@@ -1,4 +1,4 @@
--- Verify stackdump:posts_rls_comments on pg
+-- Verify stackexchange_api:posts/posts_rls_comments on pg
 
 BEGIN;
 

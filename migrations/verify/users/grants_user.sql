@@ -1,4 +1,4 @@
--- Verify stackdump:grants_user on pg
+-- Verify stackexchange_api:users/grants_user on pg
 
 BEGIN;
 

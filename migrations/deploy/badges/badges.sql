@@ -1,7 +1,7 @@
--- Deploy stackdump:badges to pg
--- requires: appschema
--- requires: users
--- requires: jwt
+-- Deploy stackexchange_api:badges/badges to pg
+-- requires: schema/appschema
+-- requires: users/users
+-- requires: schema/jwt
 
 BEGIN;
 

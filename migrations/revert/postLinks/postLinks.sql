@@ -1,4 +1,4 @@
--- Revert stackdump:postLinks from pg
+-- Revert stackexchange_api:postLinks/postLinks from pg
 
 BEGIN;
 

@@ -1,4 +1,4 @@
--- Verify stackdump:insert_seed_data on pg
+-- Verify stackexchange_api:data/insert_seed_data on pg
 
 BEGIN;
 

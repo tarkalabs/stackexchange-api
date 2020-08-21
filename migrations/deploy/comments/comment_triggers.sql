@@ -1,6 +1,6 @@
--- Deploy stackdump:comment_triggers to pg
--- requires: appschema
--- requires: comments
+-- Deploy stackexchange_api:comments/comment_triggers to pg
+-- requires: schema/appschema
+-- requires: comments/comments
 
 BEGIN;
 

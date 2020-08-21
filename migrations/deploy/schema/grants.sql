@@ -1,9 +1,9 @@
--- Deploy stackdump:grants to pg
--- requires: roles
--- requires: appschema
--- requires: authentication
--- requires: register_user
--- requires: posts
+-- Deploy stackexchange_api:schema/grants to pg
+-- requires: schema/roles
+-- requires: schema/appschema
+-- requires: users/authentication
+-- requires: users/register_user
+-- requires: posts/posts
 
 BEGIN;
 

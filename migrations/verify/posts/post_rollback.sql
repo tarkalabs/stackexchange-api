@@ -1,4 +1,4 @@
--- Verify stackdump:post_rollback on pg
+-- Verify stackexchange_api:posts/post_rollback on pg
 
 BEGIN;
 

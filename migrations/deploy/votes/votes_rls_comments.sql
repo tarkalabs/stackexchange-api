@@ -1,7 +1,7 @@
--- Deploy stackdump:votes_rls_comments to pg
--- requires: appschema
--- requires: votes
--- requires: roles
+-- Deploy stackexchange_api:votes/votes_rls_comments to pg
+-- requires: schema/appschema
+-- requires: votes/votes
+-- requires: schema/roles
 
 BEGIN;
 

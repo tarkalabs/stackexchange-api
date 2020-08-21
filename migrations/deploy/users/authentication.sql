@@ -1,7 +1,7 @@
--- Deploy stackdump:authentication to pg
--- requires: jwt
--- requires: accounts
--- requires: users
+-- Deploy stackexchange_api:users/authentication to pg
+-- requires: schema/jwt
+-- requires: users/accounts
+-- requires: users/users
 
 BEGIN;
 

@@ -1,7 +1,7 @@
--- Deploy stackdump:timestamp_triggers to pg
--- requires: posts
--- requires: users
--- requires: appschema
+-- Deploy stackexchange_api:posts/timestamp_triggers to pg
+-- requires: posts/posts
+-- requires: users/users
+-- requires: schema/appschema
 
 BEGIN;
 

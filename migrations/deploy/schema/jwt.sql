@@ -1,4 +1,4 @@
--- Deploy stackdump:jwt to pg
+-- Deploy stackexchange_api:schema/jwt to pg
 
 BEGIN;
 

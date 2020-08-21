@@ -1,4 +1,4 @@
--- Verify stackdump:postLinks on pg
+-- Verify stackexchange_api:postLinks/postLinks on pg
 
 BEGIN;
 

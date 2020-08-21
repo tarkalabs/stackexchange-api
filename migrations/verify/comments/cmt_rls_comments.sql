@@ -1,4 +1,4 @@
--- Verify stackdump:cmt_rls_comments on pg
+-- Verify stackexchange_api:comments/cmt_rls_comments on pg
 
 BEGIN;
 

@@ -1,4 +1,4 @@
--- Verify stackdump:example_badge_triggers on pg
+-- Verify stackexchange_api:badges/example_badge_triggers on pg
 
 BEGIN;
 

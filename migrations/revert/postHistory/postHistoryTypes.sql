@@ -1,4 +1,4 @@
--- Revert stackdump:postHistoryTypes from pg
+-- Revert stackexchange_api:postHistory/postHistoryTypes from pg
 
 BEGIN;
 

@@ -1,4 +1,4 @@
--- Revert stackdump:appschema from pg
+-- Revert stackexchange_api:schema/appschema from pg
 
 BEGIN;
 

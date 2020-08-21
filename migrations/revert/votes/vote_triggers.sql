@@ -1,4 +1,4 @@
--- Revert stackdump:vote_triggers from pg
+-- Revert stackexchange_api:votes/vote_triggers from pg
 
 BEGIN;
 

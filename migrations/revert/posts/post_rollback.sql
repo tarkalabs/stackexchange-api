@@ -1,4 +1,4 @@
--- Revert stackdump:post_rollback from pg
+-- Revert stackexchange_api:posts/post_rollback from pg
 
 BEGIN;
 

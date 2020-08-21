@@ -1,4 +1,4 @@
--- Revert stackdump:grants_tgs from pg
+-- Revert stackexchange_api:tags/grants_tgs from pg
 
 BEGIN;
 

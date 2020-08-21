@@ -1,8 +1,8 @@
--- Deploy stackdump:votes to pg
--- requires: appschema
--- requires: posts
--- requires: users
--- requires: jwt
+-- Deploy stackexchange_api:votes/votes to pg
+-- requires: schema/appschema
+-- requires: posts/posts
+-- requires: users/users
+-- requires: schema/jwt
 
 BEGIN;
 

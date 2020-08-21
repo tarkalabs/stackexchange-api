@@ -1,4 +1,4 @@
--- Revert stackdump:tags_rls_comments from pg
+-- Revert stackexchange_api:tags/tags_rls_comments from pg
 
 BEGIN;
 

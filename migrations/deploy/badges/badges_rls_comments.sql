@@ -1,7 +1,7 @@
--- Deploy stackdump:badges_rls_comments to pg
--- requires: appschema
--- requires: badges
--- requires: roles
+-- Deploy stackexchange_api:badges/badges_rls_comments to pg
+-- requires: schema/appschema
+-- requires: badges/badges
+-- requires: schema/roles
 
 BEGIN;
 

@@ -1,8 +1,8 @@
--- Deploy stackdump:post_rollback to pg
--- requires: appschema
--- requires: posts
--- requires: postHistory
--- requires: post_triggers
+-- Deploy stackexchange_api:posts/post_rollback to pg
+-- requires: schema/appschema
+-- requires: posts/posts
+-- requires: postHistory/postHistory
+-- requires: posts/post_triggers
 
 BEGIN;
 

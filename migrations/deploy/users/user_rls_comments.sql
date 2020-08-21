@@ -1,7 +1,7 @@
--- Deploy stackdump:user_rls_comments to pg
--- requires: users
--- requires: appschema
--- requires: roles
+-- Deploy stackexchange_api:users/user_rls_comments to pg
+-- requires: users/users
+-- requires: schema/appschema
+-- requires: schema/roles
 
 BEGIN;
 

@@ -1,4 +1,4 @@
--- Verify stackdump:post_view on pg
+-- Verify stackexchange_api:posts/post_view on pg
 
 BEGIN;
 
