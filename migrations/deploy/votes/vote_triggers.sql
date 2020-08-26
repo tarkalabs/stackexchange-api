@@ -48,7 +48,7 @@ CREATE FUNCTION stackdump_private.vote_delete_trigger() RETURNS TRIGGER AS $$
         SET ROLE user_super;
         IF old.voteTypeId = 1 THEN 
             UPDATE stackdump.posts SET acceptedAnswerId = NULL
-                WHERE posts.id = old.postId;
+                WHERE posts.id = (SELECT parentId FROM stackdump.posts WHERE posts.id = old.postId);
             UPDATE stackdump.users SET reputation = reputation - 15
                 WHERE users.id = (SELECT ownerUserId FROM stackdump.posts WHERE posts.id = old.postId) AND
                     users.id != current_setting('jwt.claims.user_id')::int;

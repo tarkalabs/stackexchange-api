@@ -7,12 +7,13 @@ BEGIN;
 
 CREATE FUNCTION stackdump_private.autobio_badge() RETURNS TRIGGER AS $$
     BEGIN
+        SET ROLE user_super;
         IF old.aboutMe IS NULL AND 
         ((SELECT COUNT(*) FROM stackdump.badges WHERE badges.userId = old.id AND badges.name = 'Autobiographer') = 0) THEN
-            RAISE NOTICE 'TEST';
-            PERFORM stackdump.insert_badge((nextval('stackdump.badges_id_seq'))::INTEGER, old.id, 'Autobiographer'::TEXT, NOW()::TIMESTAMP, 3, FALSE);
+            INSERT INTO stackdump.badges(userId, name, class, tagBased) VALUES (current_setting('jwt.claims.user_id')::int, 'Autobiographer', 3, FALSE);
         END IF;
         RETURN new;
+        RESET ROLE;
     END;
 $$ LANGUAGE PLPGSQL;
 

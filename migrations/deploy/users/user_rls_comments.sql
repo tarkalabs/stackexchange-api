@@ -17,7 +17,7 @@ COMMENT ON TABLE stackdump.users is E'@omit create';
 
 ALTER TABLE stackdump.users ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY policy_update_user ON stackdump.users FOR update TO user_reg WITH CHECK(id = current_setting('jwt.claims.user_id')::int);
+CREATE POLICY policy_update_user ON stackdump.users FOR update TO user_reg USING (id = current_setting('jwt.claims.user_id')::int);
 CREATE POLICY policy_delete_user ON stackdump.users FOR delete TO user_reg USING (id = current_setting('jwt.claims.user_id')::int);
 CREATE POLICY policy_select_user ON stackdump.users FOR select TO user_reg,user_anon USING (true);
 
