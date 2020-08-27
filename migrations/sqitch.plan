@@ -25,7 +25,8 @@ users/register_user [users/accounts users/users] 2020-06-26T12:30:26Z Rahul Pada
 users/authentication [schema/jwt users/accounts users/users] 2020-07-02T13:48:53Z Rahul Padalkar <rahul@tarkalabs.com> # Added authentication function.
 posts/posts_rls_comments [posts/posts schema/roles] 2020-07-02T14:32:52Z Rahul Padalkar <rahul@tarkalabs.com> # Added row level security and comments on posts table.
 users/register_superuser [schema/appschema users/users users/accounts schema/roles] 2020-07-07T08:38:14Z Rahul Padalkar <rahul@tarkalabs.com> # Added function to register superuser.
-schema/grants [schema/roles schema/appschema users/authentication users/register_user posts/posts] 2020-07-02T14:57:54Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants to functions and tables.
+schema/grants_schema [schema/roles schema/appschema users/authentication users/register_user posts/posts] 2020-07-02T14:57:54Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants to functions and tables.
+posts/grants_posts [schema/appschema posts/posts schema/roles] 2020-08-27T12:55:35Z Samuel Beaulieu <samuel.beaulieu@tarkalabs.com> # Grants permissions for users to use the posts table.
 users/user_rls_comments [users/users schema/appschema schema/roles] 2020-07-03T06:00:00Z Rahul Padalkar <rahul@tarkalabs.com> # Added rls and comments for users table.
 users/grants_user [schema/roles schema/appschema users/users] 2020-07-03T06:29:40Z Rahul Padalkar <rahul@tarkalabs.com> # Added grants for roles on users table.
 comments/cmt_rls_comments [schema/appschema comments/comments schema/roles] 2020-07-03T06:56:03Z Rahul Padalkar <rahul@tarkalabs.com> # Added RLS and comments on comment table.
