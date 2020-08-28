@@ -1,7 +1,7 @@
 const { getClient, setJwtToken } = require("./apolloHelper");
 const { gql } = require("@apollo/client");
 const crypto = require("crypto");
-let aClient, first_username, second_username, password, jwtToken, first_userid, second_userid, postid;
+let aClient, first_username, second_username, password, jwtToken, first_userid, second_userid, postid, commentid;
 beforeAll(() => {
   aClient = getClient();
   first_username = `${crypto.randomBytes(7).toString("hex")}@${crypto
@@ -107,6 +107,32 @@ describe("Check Row Level Security", () => {
       });
       postid = res.data.createPost.post.id;
       expect(res.data.createPost.post.id).not.toEqual(null);
+    });
+
+    it("Create Comment", async () => {
+      let res = await aClient.mutate({
+        mutation: gql`
+          mutation createComment($postid: Int!) {
+            createComment(
+              input: {
+                comment: {
+                  postid: $postid
+                  text: "Everything. They're unrelated languages."
+                }
+              }
+            ) {
+              comment {
+                id
+              }
+            }
+          }
+        `,
+        variables: {
+          postid: postid,
+        },
+      });
+      expect(res.data.createComment.comment.id).not.toEqual(null);
+      commentid = res.data.createComment.comment.id;
       setJwtToken(null);
     });
 
@@ -202,11 +228,37 @@ describe("Check Row Level Security", () => {
       });
       expect(res.data.updatePost).toEqual(null);
     });
+
+    it("Attempt to Update First User's Comment", async () => {
+      let res = await aClient.mutate({
+          mutation: gql `
+              mutation setComment($commentid: Int!) {
+                  updateComment(
+                      input: {
+                          id: $commentid
+                          patch: {
+                              text: "Hello Security Breach"
+                          }
+                      }
+                  ){
+                      comment {
+                          id
+                          text
+                      }
+                  }
+              }
+          `,
+          variables: {
+              commentid: commentid,
+          },
+      });
+      expect(res.data.updateComment).toEqual(null);
+    });
   
 });
 
 afterAll(() => {
     console.log(
-      `Username: ${first_username} \n Password: ${password} \n JwtToken: ${jwtToken}`
+      `First UserId: ${first_userid} \n Password: ${password} \n Second UserId: ${second_userid} \n PostId: ${postid} \n CommentId: ${commentid}`
     );
 });
