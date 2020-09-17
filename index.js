@@ -7,7 +7,7 @@ const { initilaize } = require("./gql-plugins/mailer");
 require("dotenv").config();
 initilaize();
 app.use(
-  postgraphile(process.env.DB_URL, process.env.GQL_SCHEMA, {
+  postgraphile(process.env.DATABASE_URL, process.env.GQL_SCHEMA, {
     watchPg: true,
     graphiql: true,
     enhanceGraphiql: true,
